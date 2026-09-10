@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @font-face { font-family: "Pixel Operator"; src: url("./fonts/PixelOperator.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Pixel Operator"; src: url("./fonts/PixelOperator-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+    @font-face { font-family: "Pixel Operator Mono"; src: url("./fonts/PixelOperatorMono.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+    html, body { margin: 0; padding: 0; background: #0c0d0b; }
+    body { -webkit-font-smoothing: none; font-smooth: never; }
+    ::selection { background: #7eb4ff; color: #0c0d0b; }
+    a { color: #7eb4ff; text-underline-offset: 0.22em; }
+    a:hover { color: #ece6d8; }
+  </style>
+</helmet>
+<div style="background:#0c0d0b;color:#ece6d8;font-family:'Pixel Operator',ui-sans-serif,sans-serif;font-size:16px;line-height:1.75;">
+
+  <header style="position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(236,230,216,0.12);background:rgba(12,13,11,0.92);backdrop-filter:blur(6px);">
+    <div style="margin:0 auto;max-width:66rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:0.9rem clamp(1.25rem, 4vw, 3rem);box-sizing:border-box;">
+      <a href="Portfolio v2.dc.html" style="display:inline-flex;align-items:center;gap:0.6rem;min-height:44px;color:#a39d90;text-decoration:none;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;text-transform:uppercase;line-height:1;transition:color .3s;" style-hover="color:#ece6d8"><span>←</span> Akshith Mysa</a>
+      <span style="font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;text-transform:uppercase;line-height:1;color:#8a8479;">Case study 01</span>
+    </div>
+  </header>
+
+  <article style="margin:0 auto;max-width:66rem;padding:clamp(3rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3rem) 0;box-sizing:border-box;">
+
+    <p style="margin:0 0 1.25rem;display:flex;flex-wrap:wrap;gap:0.75rem 1.5rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;">
+      <span style="color:#7eb4ff;">Enterprise CRM</span>
+      <span style="color:#8a8479;">Klinn AI</span>
+      <span style="color:#8a8479;">2025</span>
+    </p>
+
+    <h1 style="margin:0;font-weight:700;font-size:clamp(32px, 6vw, 64px);line-height:1.05;max-width:20ch;">Edmissions World CRM</h1>
+
+    <p style="margin:1.75rem 0 0;max-width:56ch;font-size:clamp(24px, 2.4vw, 32px);line-height:1.4;color:#ece6d8;">An admissions consultancy was running its whole pipeline on spreadsheets and memory. This is the system that replaced it.</p>
+
+    <dl style="margin:3rem 0 0;display:flex;flex-wrap:wrap;gap:1px;background:rgba(236,230,216,0.12);border:1px solid rgba(236,230,216,0.12);">
+      <sc-for list="{{ facts }}" as="fact" hint-placeholder-count="4">
+        <div style="flex:1 1 12rem;background:#0c0d0b;padding:1.1rem 1.35rem;">
+          <dt style="margin:0 0 0.45rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#8a8479;">{{ fact.k }}</dt>
+          <dd style="margin:0;line-height:1.5;">{{ fact.v }}</dd>
+        </div>
+      </sc-for>
+    </dl>
+
+    <div style="margin:3rem 0 0;border:1px solid rgba(236,230,216,0.12);aspect-ratio:16/9;background-image:repeating-linear-gradient(135deg, rgba(236,230,216,0.05) 0 6px, transparent 6px 12px);display:flex;align-items:flex-end;padding:1.25rem;box-sizing:border-box;">
+      <p style="margin:0;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;line-height:1.4;color:#8a8479;">screenshot — CRM pipeline view.<br>Blur real student names before you ship this.</p>
+    </div>
+
+    <section style="margin-top:clamp(3rem, 6vw, 5rem);display:flex;flex-wrap:wrap;gap:clamp(1.5rem, 4vw, 4rem);">
+      <h2 style="flex:0 0 10rem;margin:0;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;font-weight:400;letter-spacing:1px;line-height:1.4;text-transform:uppercase;color:#7eb4ff;">01 / The problem</h2>
+      <div style="flex:1 1 28rem;min-width:0;max-width:62ch;display:flex;flex-direction:column;gap:1.25rem;">
+        <p style="margin:0;">Edmissions World places students into medical and undergraduate programmes abroad. Each placement involves a dozen documents, several universities, deadlines that move, and a commission that has to be reconciled months later.</p>
+        <p style="margin:0;">All of it lived in spreadsheets, WhatsApp threads and individual counsellors' heads. The consultancy could not answer the two questions that mattered — where is this student in the process, and which applications are at risk this week — without someone spending an afternoon on it.</p>
+        <p style="margin:0;color:#a39d90;">[ replace: the specific incident or number that made them act — a missed deadline, a lost commission, hours per week spent reconciling ]</p>
+      </div>
+    </section>
+
+    <section style="margin-top:clamp(3rem, 6vw, 5rem);display:flex;flex-wrap:wrap;gap:clamp(1.5rem, 4vw, 4rem);">
+      <h2 style="flex:0 0 10rem;margin:0;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;font-weight:400;letter-spacing:1px;line-height:1.4;text-transform:uppercase;color:#7eb4ff;">02 / Approach</h2>
+      <div style="flex:1 1 28rem;min-width:0;max-width:62ch;display:flex;flex-direction:column;gap:1.25rem;">
+        <p style="margin:0;">I did not start from a CRM template. I sat with the counsellors' spreadsheets and modelled what was already there: the student as the unit of work, the application as a child record with its own state machine, and the document checklist as the thing that actually blocks progress.</p>
+        <p style="margin:0;">The rule I held to was that nobody should have to change how they work to use the system on day one. Anything that looked like process improvement got postponed until the data was trustworthy.</p>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
+          <sc-for list="{{ decisions }}" as="row" hint-placeholder-count="3">
+            <li style="display:flex;gap:1rem;">
+              <span aria-hidden="true" style="flex:0 0 0.75rem;height:1px;background:#7eb4ff;margin-top:0.85rem;"></span>
+              <span style="flex:1 1 auto;min-width:0;"><strong style="font-weight:700;">{{ row.title }}</strong> <span style="color:#a39d90;">{{ row.body }}</span></span>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-top:clamp(3rem, 6vw, 5rem);display:flex;flex-wrap:wrap;gap:clamp(1.5rem, 4vw, 4rem);">
+      <h2 style="flex:0 0 10rem;margin:0;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;font-weight:400;letter-spacing:1px;line-height:1.4;text-transform:uppercase;color:#7eb4ff;">03 / What shipped</h2>
+      <div style="flex:1 1 28rem;min-width:0;max-width:62ch;display:flex;flex-direction:column;gap:2rem;">
+        <sc-for list="{{ modules }}" as="mod" hint-placeholder-count="4">
+          <div style="border-top:1px solid rgba(236,230,216,0.12);padding-top:1rem;">
+            <h3 style="margin:0 0 0.4rem;font-weight:700;font-size:24px;line-height:1.3;">{{ mod.title }}</h3>
+            <p style="margin:0;color:#a39d90;">{{ mod.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="margin-top:clamp(3rem, 6vw, 5rem);display:flex;flex-wrap:wrap;gap:clamp(1.5rem, 4vw, 4rem);">
+      <h2 style="flex:0 0 10rem;margin:0;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;font-weight:400;letter-spacing:1px;line-height:1.4;text-transform:uppercase;color:#7eb4ff;">04 / Outcome</h2>
+      <div style="flex:1 1 28rem;min-width:0;max-width:62ch;">
+        <div style="display:flex;flex-wrap:wrap;gap:1px;background:rgba(236,230,216,0.12);border:1px solid rgba(236,230,216,0.12);margin-bottom:1.5rem;">
+          <sc-for list="{{ metrics }}" as="metric" hint-placeholder-count="3">
+            <div style="flex:1 1 10rem;background:#0c0d0b;padding:1.25rem;">
+              <p style="margin:0 0 0.4rem;font-weight:700;font-size:32px;line-height:1.1;color:#7eb4ff;">{{ metric.v }}</p>
+              <p style="margin:0;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1.4;text-transform:uppercase;color:#8a8479;">{{ metric.k }}</p>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0 0 1.25rem;">The consultancy now runs its admissions cycle out of the CRM rather than alongside it. The pipeline view answers the two questions that used to take an afternoon.</p>
+        <p style="margin:0;color:#a39d90;">[ replace the three figures above with real ones — even rough numbers you can defend in an interview beat a placeholder. If you have no numbers, replace the block with a two-sentence quote from the client. ]</p>
+      </div>
+    </section>
+
+    <section style="margin-top:clamp(3rem, 6vw, 5rem);display:flex;flex-wrap:wrap;gap:clamp(1.5rem, 4vw, 4rem);">
+      <h2 style="flex:0 0 10rem;margin:0;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;font-weight:400;letter-spacing:1px;line-height:1.4;text-transform:uppercase;color:#7eb4ff;">05 / What I would change</h2>
+      <div style="flex:1 1 28rem;min-width:0;max-width:62ch;display:flex;flex-direction:column;gap:1.25rem;">
+        <p style="margin:0;">The document checklist should have been a first-class model from the start rather than a field on the application. Retrofitting it cost more than building it would have.</p>
+        <p style="margin:0;color:#a39d90;">[ replace with your own — one honest limitation is the most persuasive paragraph on this page ]</p>
+      </div>
+    </section>
+
+    <nav style="margin-top:clamp(4rem, 8vw, 6rem);border-top:1px solid rgba(236,230,216,0.12);padding:2rem 0 4rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;">
+      <a href="Portfolio v2.dc.html" style="display:inline-flex;align-items:center;gap:0.6rem;min-height:44px;color:#a39d90;text-decoration:none;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;text-transform:uppercase;line-height:1;transition:color .3s;" style-hover="color:#ece6d8"><span>←</span> All work</a>
+      <a href="https://github.com/sc0rp10n16/edmission-world-crm" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:0.6rem;min-height:44px;box-sizing:border-box;border:1px solid #7eb4ff;color:#7eb4ff;text-decoration:none;padding:0.8rem 1.4rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;text-transform:uppercase;line-height:1;transition:background .3s,color .3s;" style-hover="background:#7eb4ff;color:#0c0d0b">Source <span>↗</span></a>
+    </nav>
+  </article>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      facts: [
+        { k: "Role", v: "Architecture, data model, delivery" },
+        { k: "Team", v: "[ replace: size ]" },
+        { k: "Duration", v: "[ replace: months ]" },
+        { k: "Status", v: "In production" },
+      ],
+      decisions: [
+        { title: "Spreadsheet-shaped tables.", body: "The main views are dense, sortable and keyboard-navigable, because that is what the team was fast in already." },
+        { title: "State machine per application.", body: "Every stage transition is explicit and logged, so 'where is this student' has one answer rather than three." },
+        { title: "Roles before features.", body: "Counsellor, operations and admin see different surfaces of the same records — built in from the first migration, not bolted on." },
+      ],
+      modules: [
+        { title: "Lead intake", body: "Enquiries from the public site land as structured records with source attribution, so marketing spend is traceable to placements." },
+        { title: "Document collection", body: "Per-programme checklists with upload, review state and expiry. The blocker list is the same object the counsellor chases." },
+        { title: "University applications", body: "One record per student-programme pair, each with its own deadline, stage and owner. Deadlines roll up into a weekly risk view." },
+        { title: "Commission tracking", body: "Expected against received, reconciled per intake — the part that pays for the rest of the system." },
+      ],
+      metrics: [
+        { v: "[ n ]", k: "Consultants on the system" },
+        { v: "[ n ]", k: "Applications processed" },
+        { v: "[ n ]", k: "Hours saved per week" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

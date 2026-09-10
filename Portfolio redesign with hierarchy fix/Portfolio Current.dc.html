@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @font-face { font-family: "Pixel Operator"; src: url("./fonts/PixelOperator.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Pixel Operator"; src: url("./fonts/PixelOperator-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+    @font-face { font-family: "Pixel Operator Mono"; src: url("./fonts/PixelOperatorMono.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Pixel Operator Mono"; src: url("./fonts/PixelOperatorMono-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+    html, body { margin: 0; padding: 0; background: #0c0d0b; }
+    body { -webkit-font-smoothing: none; font-smooth: never; }
+    ::selection { background: #f6f6f6; color: #0c0d0b; }
+    a { color: #ece6d8; text-underline-offset: 0.22em; }
+    a:hover { color: #f6f6f6; }
+    @keyframes rise { from { transform: translateY(110%); } to { transform: translateY(0); } }
+  </style>
+</helmet>
+<div style="position:relative;min-height:100vh;background:#0c0d0b;color:#ece6d8;font-family:'Pixel Operator',ui-sans-serif,sans-serif;font-size:16px;line-height:1.5;background-image:linear-gradient(to right, rgba(236,230,216,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(236,230,216,0.12) 1px, transparent 1px);background-size:4.5rem 4.5rem;background-position:center top;">
+
+  <div aria-hidden="true" style="pointer-events:none;position:fixed;inset:0;z-index:40;opacity:0.045;mix-blend-mode:overlay;background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E');"></div>
+
+  <header style="position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(236,230,216,0.12);background:rgba(12,13,11,0.85);backdrop-filter:blur(4px);">
+    <div style="margin:0 auto;display:flex;max-width:92rem;flex-direction:column;gap:0.75rem;padding:1rem 3rem;box-sizing:border-box;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;">
+        <a href="#index" style="font-size:16px;color:#ece6d8;text-decoration:none;">AM<span style="margin-left:0.75rem;color:#f6f6f6;">Akshith Mysa</span></a>
+        <p style="margin:0;flex-shrink:0;font-variant-numeric:tabular-nums;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">Magdeburg<span style="margin:0 0.5rem;color:#5c5850;">·</span><span>{{ clock }}</span></p>
+      </div>
+      <nav aria-label="Primary" style="display:flex;flex-wrap:wrap;column-gap:1.5rem;row-gap:0.5rem;">
+        <a href="#index" style="font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#ece6d8;text-decoration:none;border-bottom:1px solid #f6f6f6;padding-bottom:0.28rem;"><span style="margin-right:0.5rem;color:#5a87c4;">01</span>Index</a>
+        <a href="#work" style="font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#5c5850;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:0.28rem;transition:color 0.3s;" style-hover="color:#ece6d8;border-bottom-color:#f6f6f6"><span style="margin-right:0.5rem;color:#5a87c4;">02</span>Work</a>
+        <a href="#notes" style="font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#5c5850;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:0.28rem;transition:color 0.3s;" style-hover="color:#ece6d8;border-bottom-color:#f6f6f6"><span style="margin-right:0.5rem;color:#5a87c4;">03</span>Notes</a>
+        <a href="#contact" style="font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#5c5850;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:0.28rem;transition:color 0.3s;" style-hover="color:#ece6d8;border-bottom-color:#f6f6f6"><span style="margin-right:0.5rem;color:#5a87c4;">04</span>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="index" data-screen-label="01 Hero" style="position:relative;display:flex;min-height:82vh;flex-direction:column;justify-content:flex-end;overflow:hidden;">
+      <div aria-hidden="true" style="position:absolute;inset:0;z-index:0;">
+        <x-import component-from-global-scope="crt-warp" from="./crt-warp.js" color="#7eb4ff" background-color="#0c0d0b" style="width:100%;height:100%" hint-size="100%,100%"></x-import>
+      </div>
+      <div style="pointer-events:none;position:absolute;inset:0;z-index:1;background:linear-gradient(to top, #0c0d0b, rgba(12,13,11,0.55), transparent);"></div>
+
+      <div style="pointer-events:none;position:relative;z-index:10;margin:0 auto;width:100%;max-width:92rem;padding:9rem 3rem 5rem;box-sizing:border-box;">
+        <p style="margin:0 0 2rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">Currently · Magdeburg</p>
+        <h1 style="margin:0;max-width:18ch;font-weight:700;font-size:clamp(48px, 6.2vw, 80px);line-height:1;color:#ece6d8;">
+          <span style="display:block;overflow:hidden;"><span style="display:block;animation:rise 1.15s cubic-bezier(0.16,1,0.3,1) both;">Akshith</span></span>
+          <span style="display:block;overflow:hidden;"><span style="display:block;animation:rise 1.15s cubic-bezier(0.16,1,0.3,1) 0.1s both;">Mysa</span></span>
+        </h1>
+        <div style="margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:2.5rem;align-items:flex-end;max-width:64rem;">
+          <p style="margin:0;flex:1.35 1 22rem;max-width:36rem;font-size:24px;line-height:2rem;color:rgba(236,230,216,0.9);">I ship the platforms companies actually run on — then go looking at the silicon underneath.</p>
+          <ul style="margin:0;flex:1 1 18rem;list-style:none;padding:0 0 0 2rem;border-left:1px solid rgba(236,230,216,0.12);display:flex;flex-direction:column;gap:0.75rem;">
+            <sc-for list="{{ nowItems }}" as="row" hint-placeholder-count="3">
+              <li style="display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:0.75rem;font-size:16px;line-height:1.5rem;">
+                <span style="padding-top:0.25rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">{{ row.k }}</span>
+                <span style="color:#f6f6f6;">{{ row.v }}</span>
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" data-screen-label="02 Work" style="border-top:1px solid rgba(236,230,216,0.12);padding:7rem 3rem;">
+      <div style="margin:0 auto;max-width:92rem;">
+        <div style="margin-bottom:3.5rem;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem;">
+          <div>
+            <p style="margin:0 0 0.75rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">02 / Work</p>
+            <h2 style="margin:0;font-weight:700;font-size:clamp(32px, 4vw, 48px);line-height:1;">Trajectory</h2>
+          </div>
+          <p style="margin:0;max-width:20rem;text-align:right;font-size:16px;line-height:1.5rem;color:#f6f6f6;">Companies, labs, and the systems that came out of them.</p>
+        </div>
+
+        <div style="border-top:1px solid rgba(236,230,216,0.12);border-bottom:1px solid rgba(236,230,216,0.12);">
+          <sc-for list="{{ work }}" as="item" hint-placeholder-count="3">
+            <article style="position:relative;border-top:1px solid rgba(236,230,216,0.12);">
+              <a href="{{ item.href }}" target="_blank" rel="noreferrer" style="display:flex;flex-wrap:wrap;gap:1.5rem;padding:3rem 0 3rem 2rem;text-decoration:none;color:inherit;border-left:1px solid transparent;transition:border-color 0.55s cubic-bezier(0.16,1,0.3,1);" style-hover="border-left-color:#f6f6f6">
+                <div style="flex:0 0 7rem;">
+                  <span style="display:block;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">{{ item.index }}</span>
+                  <span style="display:block;margin-top:1.5rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#5c5850;">{{ item.period }}</span>
+                </div>
+                <div style="flex:1.1 1 24rem;">
+                  <h3 style="margin:0;font-weight:700;font-size:32px;line-height:2rem;">{{ item.org }}</h3>
+                  <p style="margin:0.5rem 0 0;color:#f6f6f6;">{{ item.role }}</p>
+                  <p style="margin:1.25rem 0 0;max-width:36rem;font-size:16px;line-height:1.5rem;color:#f6f6f6;">{{ item.summary }}</p>
+                </div>
+                <ul style="margin:0;flex:0.9 1 18rem;align-self:flex-end;list-style:none;padding:0 0 0.25rem;display:flex;flex-direction:column;gap:0.5rem;font-size:16px;line-height:1.5rem;color:#f6f6f6;">
+                  <sc-for list="{{ item.notes }}" as="note" hint-placeholder-count="3">
+                    <li style="display:flex;gap:0.75rem;"><span style="margin-top:0.5rem;height:1px;width:0.75rem;flex-shrink:0;background:#5a87c4;"></span><span>{{ note }}</span></li>
+                  </sc-for>
+                </ul>
+              </a>
+            </article>
+          </sc-for>
+        </div>
+
+        <div style="margin-top:5rem;">
+          <p style="margin:0 0 2rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">Selected systems</p>
+          <div style="display:grid;gap:1px;background:rgba(236,230,216,0.12);grid-template-columns:repeat(auto-fit, minmax(min(100%, 22rem), 1fr));">
+            <sc-for list="{{ systems }}" as="sys" hint-placeholder-count="4">
+              <a href="{{ sys.href }}" target="_blank" rel="noreferrer" style="display:flex;flex-direction:column;background:#0c0d0b;padding:2rem;text-decoration:none;color:inherit;transition:background 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="background:#131410">
+                <div style="margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">{{ sys.kind }}</span>
+                  <span style="font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#5c5850;">{{ sys.year }}</span>
+                </div>
+                <h3 style="margin:0;font-weight:700;font-size:24px;line-height:2rem;">{{ sys.name }}</h3>
+                <p style="margin:0.75rem 0 0;flex:1;font-size:16px;line-height:1.5rem;color:#f6f6f6;">{{ sys.blurb }}</p>
+                <span style="margin-top:2rem;display:inline-flex;align-items:center;gap:0.45rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;color:#f6f6f6;">Source <span>↗</span></span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="notes" data-screen-label="03 Notes" style="border-top:1px solid rgba(236,230,216,0.12);padding:7rem 3rem;">
+      <div style="margin:0 auto;max-width:92rem;">
+        <p style="margin:0 0 0.75rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">03 / Notes</p>
+        <h2 style="margin:0 0 3.5rem;font-weight:700;font-size:clamp(32px, 4vw, 48px);line-height:1;">How I work</h2>
+
+        <div style="display:flex;flex-wrap:wrap;gap:4rem;">
+          <div style="flex:1.2 1 28rem;max-width:42rem;display:flex;flex-direction:column;gap:1.5rem;font-size:16px;line-height:1.5rem;color:#f6f6f6;">
+            <sc-for list="{{ essay }}" as="para" hint-placeholder-count="3">
+              <p style="margin:0;">{{ para }}</p>
+            </sc-for>
+          </div>
+          <div style="flex:0.8 1 20rem;display:flex;flex-direction:column;gap:2.5rem;">
+            <sc-for list="{{ terrains }}" as="terrain" hint-placeholder-count="3">
+              <div style="border-top:1px solid rgba(236,230,216,0.12);padding-top:1.25rem;">
+                <p style="margin:0 0 0.5rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">{{ terrain.index }}</p>
+                <h3 style="margin:0;font-weight:700;font-size:24px;line-height:2rem;">{{ terrain.title }}</h3>
+                <p style="margin:0.5rem 0 0;font-size:16px;line-height:1.5rem;color:#f6f6f6;">{{ terrain.body }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <a href="https://doi.org/10.1002/9781394268795.ch20" target="_blank" rel="noreferrer" style="margin-top:5rem;display:flex;flex-wrap:wrap;gap:1.5rem;border:1px solid rgba(236,230,216,0.12);padding:2rem;text-decoration:none;color:inherit;align-items:flex-end;justify-content:space-between;transition:border-color 0.5s;" style-hover="border-color:rgba(236,230,216,0.28)">
+          <div style="max-width:48rem;">
+            <p style="margin:0 0 1rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">Publication · 2025</p>
+            <h3 style="margin:0;font-weight:700;font-size:clamp(24px, 2.4vw, 32px);line-height:1.1;">Navigation of Unconventional Drones — Autonomous Ornithopter</h3>
+            <p style="margin:1rem 0 0;font-size:16px;line-height:1.5rem;color:#f6f6f6;">Artificial Intelligence Applications in Aeronautical and Aerospace Engineering<span style="color:#5c5850;"> · Wiley</span></p>
+            <p style="margin:0.75rem 0 0;max-width:36rem;font-size:16px;line-height:1.5rem;color:#f6f6f6;">Chapter 20. Control and navigation for flapping-wing UAVs — UWB, SLAM, ROS — indoor and out.</p>
+          </div>
+          <span style="flex-shrink:0;display:inline-flex;align-items:center;gap:0.45rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">Wiley chapter <span>↗</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" data-screen-label="04 Contact" style="border-top:1px solid rgba(236,230,216,0.12);padding:7rem 3rem;">
+      <div style="margin:0 auto;max-width:92rem;">
+        <p style="margin:0 0 0.75rem;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;color:#f6f6f6;">04 / Contact</p>
+        <h2 style="margin:0;max-width:16ch;font-weight:700;font-size:clamp(32px, 5vw, 64px);line-height:1;">If the problem is still awkward, write.</h2>
+        <p style="margin:2rem 0 0;max-width:36rem;font-size:16px;line-height:1.5rem;color:#f6f6f6;">Open to conversations about product, research, or the next hard system. Magdeburg afternoons, Hyderabad evenings — I answer both.</p>
+        <ul style="margin:3.5rem 0 0;list-style:none;padding:0;display:flex;flex-wrap:wrap;column-gap:2.5rem;row-gap:1rem;">
+          <sc-for list="{{ elsewhere }}" as="link" hint-placeholder-count="3">
+            <li><a href="{{ link.href }}" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:0.45rem;font-size:24px;line-height:2rem;color:#ece6d8;text-decoration:none;transition:color 0.35s;" style-hover="color:#f6f6f6">{{ link.label }}<span style="font-size:16px;">↗</span></a></li>
+          </sc-for>
+        </ul>
+      </div>
+      <footer style="margin:6rem auto 0;max-width:92rem;border-top:1px solid rgba(236,230,216,0.12);padding-top:1.5rem;">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.75rem;color:#f6f6f6;">
+          <p style="margin:0;font-family:'Pixel Operator Mono',ui-monospace,monospace;font-size:16px;letter-spacing:1px;line-height:1;text-transform:uppercase;">© 2026 Akshith Mysa</p>
+          <p style="margin:0;font-size:16px;">Magdeburg, Germany</p>
+        </div>
+      </footer>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { clock: "——:——" };
+
+  componentDidMount() {
+    const tick = () => this.setState({
+      clock: new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Europe/Berlin", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+      }).format(new Date()),
+    });
+    tick();
+    this._id = setInterval(tick, 1000);
+  }
+
+  componentWillUnmount() { clearInterval(this._id); }
+
+  renderVals() {
+    return {
+      clock: this.state.clock,
+      nowItems: [
+        { k: "Based", v: "Magdeburg, Germany" },
+        { k: "Studying", v: "Advanced Semiconductor Nanotechnologies, OVGU" },
+        { k: "Building", v: "Klinn AI — enterprise platforms & automation" },
+      ],
+      work: [
+        {
+          index: "01", period: "2025 —", org: "Klinn AI", role: "Co-founder & CTO",
+          href: "https://www.klinnai.com",
+          summary: "Lead technologist for an AI-native engineering studio. I own architecture, delivery, and the unglamorous systems — CRMs, admissions platforms, internal tools — that have to work on a Tuesday, not just in a deck.",
+          notes: [
+            "Enterprise CRM for education consultants (Edmissions World)",
+            "Public sites and product surfaces across education and aerospace",
+            "SaaS direction: CRM, LMS, ERP, workflow automation",
+          ],
+        },
+        {
+          index: "02", period: "2024 — 25", org: "OSCOWL ai", role: "Associate AI Engineer",
+          href: "https://www.oscowl.in",
+          summary: "Deep-tech R&D in Hyderabad — the kind of lab that talks about speech models, UAVs, and custom silicon in the same week. I worked on applied AI where research had to survive contact with a product.",
+          notes: ["Applied models and agents", "Aerospace-adjacent systems", "Research-to-product translation"],
+        },
+        {
+          index: "03", period: "TiHAN", org: "TiHAN — IIT Hyderabad", role: "Research Intern",
+          href: "https://tihan.iith.ac.in",
+          summary: "National hub for autonomous navigation. I spent my time on bio-inspired flight: ornithopters, GPS-denied navigation, the awkward physics of machines that flap instead of spin.",
+          notes: ["Autonomous ornithopters", "UWB, SLAM, ROS control", "Indoor and outdoor navigation"],
+        },
+      ],
+      systems: [
+        { name: "Edmissions World CRM", kind: "Enterprise", year: "2025", blurb: "First major Klinn product. Pipeline, operations, and the daily grind of an education consultancy — built to be used, not demoed.", href: "https://github.com/sc0rp10n16/edmission-world-crm" },
+        { name: "Edmissions World", kind: "Platform", year: "2025", blurb: "Public-facing admissions surfaces, including MBBS pathways. The outside of the same operation the CRM runs on the inside.", href: "https://github.com/sc0rp10n16/edmissions-world-landing" },
+        { name: "Sriram Aero", kind: "Aerospace", year: "2025", blurb: "Landing and presence for an aerospace practice. Quiet, specific, no stock-photo hero.", href: "https://github.com/sc0rp10n16/sriram-aero-landing" },
+        { name: "GermanQuest", kind: "Personal", year: "2026", blurb: "A language trainer I started after moving to Magdeburg. If you live somewhere, you should be able to order bread.", href: "https://github.com/sc0rp10n16/GermanQuest" },
+      ],
+      essay: [
+        "Most of the last two years went into shipping. Klinn AI is the company I co-founded to build production software for operations that cannot afford theatre — education consultancies, internal platforms, the systems people open at 9 a.m.",
+        "Before that I was in Hyderabad's deep-tech pocket: first on bio-inspired drones at TiHAN–IIT Hyderabad, then as an AI engineer at OSCOWL. Same itch in a different medium. Make the thing move. Make the thing decide. Make it hold up.",
+        "The master's at OVGU is the layer I kept skipping. Models and products are downstream of devices. I wanted the stack, not just the demo.",
+      ],
+      terrains: [
+        { index: "01", title: "Platforms", body: "CRMs, LMS, internal tools. Software that absorbs a company's actual workflow instead of inventing a prettier one." },
+        { index: "02", title: "Autonomy", body: "Navigation when GPS disappears. Perception, control, and the gap between a paper and a flying article." },
+        { index: "03", title: "Silicon", body: "Why I'm in Magdeburg. Devices, fabrication, the layer every model eventually sits on." },
+      ],
+      elsewhere: [
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/akshithmysa" },
+        { label: "GitHub", href: "https://github.com/sc0rp10n16" },
+        { label: "Klinn AI", href: "https://www.klinnai.com" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
