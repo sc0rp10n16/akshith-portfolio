@@ -9,16 +9,23 @@ export const site = {
   description:
     "Akshith Mysa is co-founder and CTO of Klinn AI, and a Master's student in Advanced Semiconductor Nanotechnologies at OVGU Magdeburg. Previously AI engineering at OSCOWL and bio-inspired flight research at TiHAN–IIT Hyderabad.",
   url: "https://akshithmysa.com",
+  email: "akshith.mysa2025@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/akshithmysa",
     github: "https://github.com/sc0rp10n16",
     klinn: "https://www.klinnai.com",
     oscowl: "https://www.oscowl.in",
     publication: "https://doi.org/10.1002/9781394268795.ch20",
+    resume: "/resume.pdf",
     sriram: "https://github.com/sc0rp10n16/sriram-aero-landing",
     germanquest: "https://github.com/sc0rp10n16/GermanQuest",
-    crm: "https://github.com/sc0rp10n16/edmission-world-crm",
+    crm: "https://github.com/sc0rp10n16/edmission-world-crm-v2",
     edmissions: "https://github.com/sc0rp10n16/edmissions-world-landing",
+    pdfBuddy: "https://github.com/sc0rp10n16/pdf-buddy",
+    aitut: "https://github.com/sc0rp10n16/AI_LMS",
+    facialRecognition: "https://github.com/sc0rp10n16/FacialRecognitionSiameseNet",
+    droNavNet: "https://github.com/sc0rp10n16/DroNavNet",
+    genau: "https://github.com/sc0rp10n16/Genau",
   },
 } as const;
 
@@ -59,22 +66,56 @@ export const cases = [
     id: "crm",
     index: "01",
     kind: "Enterprise CRM",
-    year: "2025",
+    year: "2025–26",
     name: "Edmissions World CRM",
     href: "/work/edmissions-crm",
     external: false,
     cta: "Read case study",
-    role: "Klinn AI's first major product. I owned architecture, data model and delivery.",
+    role: "Klinn AI's production staff CRM. I owned architecture, data model and delivery.",
     problem:
-      "An education consultancy ran its entire admissions pipeline across spreadsheets, WhatsApp and memory. Nobody could answer where a student was in the process.",
+      "An education consultancy ran its admissions floor across spreadsheets, WhatsApp and memory. Five jobs — calling, qualification, documents, walk-ins, management — lived in five places.",
     built:
-      "A multi-role CRM covering lead intake, document collection, university applications and commission tracking — designed around the workflow the team already had.",
-    outcome: "In production. The consultancy now runs its admissions cycle out of the CRM rather than alongside it.",
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Role-based auth"],
+      "A private, role-based CRM: shared lead pipeline, telecaller qualification, counselor documents, reception walk-ins, WhatsApp templates, and an overnight job that reopens no-contact leads.",
+    outcome: "In production. Admin, managers, telecallers, counselors and reception work one pipeline instead of three spreadsheets.",
+    stack: ["Next.js 15", "TypeScript", "Firebase", "Cloud Functions", "LiveKit"],
+  },
+  {
+    id: "pdf-buddy",
+    index: "02",
+    kind: "LLM product",
+    year: "2024",
+    name: "PDF Buddy",
+    href: site.links.pdfBuddy,
+    external: true,
+    cta: "View source",
+    role: "A retrieval document assistant I built end to end — upload, index, ask, remember.",
+    problem:
+      "Reading a long PDF still meant scrolling, grepping, and losing the thread. Chatbots that 'read' the file once had no memory and no citations.",
+    built:
+      "A Next.js app where you drop a document, LangChain chunks it into Pinecone, and Gemini (or OpenAI) answers with chat memory. Clerk for auth, Firebase for files.",
+    outcome: "A working RAG companion: summaries, multi-turn questions, and the document still on screen.",
+    stack: ["Next.js", "LangChain", "Gemini", "Pinecone", "Clerk"],
+  },
+  {
+    id: "germanquest",
+    index: "03",
+    kind: "Mobile",
+    year: "2026",
+    name: "GermanQuest",
+    href: site.links.germanquest,
+    external: true,
+    cta: "View source",
+    role: "Offline-first German trainer I am building for arriving in Germany, not for a leaderboard.",
+    problem:
+      "Most A1 apps assume connectivity and gamify vocabulary you will never say at the Bürgeramt. I needed a pocket tool that still works on a train.",
+    built:
+      "React Native (Expo) plus a FastAPI / SQLite backend: 500+ survival words, offline translation, A1 modules, and progress that does not depend on a network.",
+    outcome: "A personal companion I actually use — vocabulary, drills, and a path I can keep when the signal drops.",
+    stack: ["React Native", "Expo", "FastAPI", "SQLite", "TypeScript"],
   },
   {
     id: "edmissions",
-    index: "02",
+    index: "04",
     kind: "Platform",
     year: "2025",
     name: "Edmissions World",
@@ -91,7 +132,7 @@ export const cases = [
   },
   {
     id: "ornithopter",
-    index: "03",
+    index: "05",
     kind: "Research",
     year: "TiHAN",
     name: "Autonomous Ornithopter Navigation",
@@ -102,16 +143,19 @@ export const cases = [
     problem:
       "Flapping-wing UAVs oscillate along every axis by design, so the pose estimation that works on quadrotors degrades badly — and indoors there is no GPS to fall back on.",
     built:
-      "A navigation and control stack for indoor and outdoor flight: UWB ranging for absolute position, SLAM for local mapping, ROS for control, tuned against the airframe's own flapping period.",
+      "A navigation and control stack for indoor and outdoor flight: UWB ranging for absolute position, ORB-SLAM3 with a RealSense D435i, ROS for control, tuned against the airframe's own flapping period.",
     outcome:
       "Published as chapter 20 in Artificial Intelligence Applications in Aeronautical and Aerospace Engineering (Wiley, 2025).",
-    stack: ["ROS", "SLAM", "UWB", "Python", "Flight testing"],
+    stack: ["ROS", "ORB-SLAM3", "UWB", "Python", "Flight testing"],
   },
 ] as const;
 
 export const alsoShipped = [
+  { label: "Genau", href: site.links.genau, note: "Swift German drills" },
+  { label: "AI LMS", href: site.links.aitut, note: "adaptive learning platform" },
+  { label: "DroNavNet", href: site.links.droNavNet, note: "drone navigation nets" },
+  { label: "Siamese face ID", href: site.links.facialRecognition, note: "one-shot embeddings" },
   { label: "Sriram Aero", href: site.links.sriram, note: "aerospace presence, 2025" },
-  { label: "GermanQuest", href: site.links.germanquest, note: "German trainer, 2026" },
 ] as const;
 
 export const interests = [
@@ -157,6 +201,18 @@ export const path = [
     org: "TiHAN — IIT Hyderabad",
     body: "Bio-inspired flight: autonomous ornithopters, GPS-denied navigation, UWB and SLAM. Led to the Wiley chapter.",
   },
+  {
+    period: "2022",
+    role: "Research Intern, Dept. of ECE",
+    org: "NIT Raipur",
+    body: "Signal processing and deep learning on EEG time-series for brain–computer interfaces — preprocessing and feature extraction in Python.",
+  },
+  {
+    period: "2020 — 24",
+    role: "B.Tech. Electronics & Communication Engineering",
+    org: "KL University",
+    body: "Devices, signals, and the first drones. The undergraduate that got me into the hardware underneath the software.",
+  },
 ] as const;
 
 export const publication = {
@@ -194,55 +250,57 @@ export const crmStudy = {
   title: "Edmissions World CRM",
   kind: "Enterprise CRM",
   org: "Klinn AI",
-  year: "2025",
-  lede: "An admissions consultancy was running its whole pipeline on spreadsheets and memory. This is the system that replaced it.",
+  year: "2025–26",
+  lede: "A private staff CRM for an admissions floor that had no single answer to who owned a lead. This is the system that replaced the spreadsheets.",
   source: site.links.crm,
   facts: [
     { k: "Role", v: "Architecture, data model, delivery" },
-    { k: "Status", v: "In production" },
+    { k: "Type", v: "Private staff CRM — not a student portal" },
+    { k: "Roles", v: "Admin, sales manager, telecaller, counselor, receptionist" },
+    { k: "Status", v: "In production (v2)" },
   ],
   problem: [
-    "Edmissions World places students into medical and undergraduate programmes abroad. Each placement involves a dozen documents, several universities, deadlines that move, and a commission that has to be reconciled months later.",
-    "All of it lived in spreadsheets, WhatsApp threads and individual counsellors' heads. The consultancy could not answer the two questions that mattered — where is this student in the process, and which applications are at risk this week — without someone spending an afternoon on it.",
+    "Edmissions World places students into medical and undergraduate programmes abroad. The floor is a chain: a sales manager imports and assigns leads, a telecaller works the queue, a counselor takes the qualified student through documents and applications, reception records walk-ins. Overnight, yesterday's no-contact leads have to come back.",
+    "None of that lived in one place. Telecallers worked spreadsheets. Counselors worked WhatsApp. Reception kept a notebook. Managers could not answer who owns this lead, or which follow-ups were missed this week, without someone spending an afternoon on it.",
   ],
   approach: [
-    "I did not start from a CRM template. I sat with the counsellors' spreadsheets and modelled what was already there: the student as the unit of work, the application as a child record with its own state machine, and the document checklist as the thing that actually blocks progress.",
-    "The rule I held to was that nobody should have to change how they work to use the system on day one. Anything that looked like process improvement got postponed until the data was trustworthy.",
+    "I sat with the floor instead of a CRM template. The unit of work is the lead: assigned to a telecaller, optionally to a team, with an explicit status machine — new, in progress, no-contact, three follow-up stages, qualified, counselor-assigned.",
+    "Each staff role gets a different surface of the same records. Managers import and distribute (round-robin, capacity or performance) with daily caps. Telecallers call, note, schedule follow-ups, mark DNP, and qualify to a named counselor. Counselors work documents and application status on that same record. Reception creates walk-ins. A Cloud Function at 00:05 Asia/Kolkata moves yesterday's NoContact leads back into Follow-up 1 so DNP does not silently die.",
   ],
   decisions: [
     {
-      title: "Spreadsheet-shaped tables.",
-      body: "The main views are dense, sortable and keyboard-navigable, because that is what the team was fast in already.",
-    },
-    {
-      title: "State machine per application.",
-      body: "Every stage transition is explicit and logged, so 'where is this student' has one answer rather than three.",
-    },
-    {
       title: "Roles before features.",
-      body: "Counsellor, operations and admin see different surfaces of the same records — built in from the first migration, not bolted on.",
+      body: "Five live roles — admin, sales manager, telemarketer, counselor, receptionist — each with path-level RBAC. A leftover student dashboard exists in code and is not shipped.",
+    },
+    {
+      title: "The lead is the record.",
+      body: "Owner, team, source, notes, follow-up date, counselor handoff and application progress live on one object, so 'where is this student' has one answer.",
+    },
+    {
+      title: "Automate the babysitting.",
+      body: "No-contact leads reopen overnight. WhatsApp templates cover the messages the floor already sent by hand: documents, fees, visa, confirmation.",
     },
   ],
   modules: [
     {
-      title: "Lead intake",
-      body: "Enquiries from the public site land as structured records with source attribution, so marketing spend is traceable to placements.",
+      title: "Lead pipeline",
+      body: "CSV import and assignment with round-robin, capacity or performance distribution, daily caps and team quotas. Statuses run from new through follow-up, qualified and counselor-assigned. Managers get a DNP list they can search, export and delete.",
     },
     {
-      title: "Document collection",
-      body: "Per-programme checklists with upload, review state and expiry. The blocker list is the same object the counsellor chases.",
+      title: "Telecaller floor",
+      body: "Assigned queues, call notes, follow-up scheduling, missed-follow-up views, daily quota, and a qualify step that writes counselorId onto the lead. Attendance clock-in sits next to the queue.",
     },
     {
-      title: "University applications",
-      body: "One record per student-programme pair, each with its own deadline, stage and owner. Deadlines roll up into a weekly risk view.",
+      title: "Counselor book",
+      body: "Qualified and counselor-assigned leads, document upload to Firebase Storage, application status (draft → documents pending → under review → additional docs → completed), and meeting scheduling.",
     },
     {
-      title: "Commission tracking",
-      body: "Expected against received, reconciled per intake — the part that pays for the rest of the system.",
+      title: "Reception and staff ops",
+      body: "Walk-in create and counselor assign on the receptionist dashboard. Leave with a manager → admin hierarchy and SMTP notifications. Admin reports, LiveKit screen share for the calling floor, and in-app help in English, Hindi and Telugu.",
     },
   ],
   outcome:
-    "The consultancy now runs its admissions cycle out of the CRM rather than alongside it. The pipeline view answers the two questions that used to take an afternoon.",
+    "The consultancy now runs its admissions cycle out of the CRM rather than alongside it. Five roles share one pipeline. The two questions that used to take an afternoon — who owns this lead, which follow-ups were missed — have a screen.",
   change:
-    "The document checklist should have been a first-class model from the start rather than a field on the application. Retrofitting it cost more than building it would have.",
+    "Application progress still mutates the lead rather than sitting in a first-class collection. Leave is still two stacks. I would have split applications earlier and killed the legacy leave API before the second year of production — retrofitting both later costs more than building them would have.",
 } as const;

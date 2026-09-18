@@ -9,12 +9,12 @@ export function Work() {
           <div>
             <p className="kicker kicker-signal mb-3">01 / Work</p>
             <h2 className="m-0 text-[clamp(32px,4vw,48px)] font-bold leading-[1.1]">
-              Three systems, in detail
+              Selected systems, in detail
             </h2>
           </div>
           <p className="m-0 max-w-[30ch] text-[16px] leading-[1.6] text-muted">
-            Each one has a problem it was built for and a version of it running
-            today. Full write-ups behind each card.
+            Production platforms, a RAG assistant, an offline language app, and
+            the navigation work that became a Wiley chapter.
           </p>
         </div>
 
@@ -90,15 +90,19 @@ export function Work() {
 
         <p className="mt-8 mb-0 text-[16px] leading-[1.7] text-faint">
           Also shipped:{" "}
-          {alsoShipped.map((item, i) => (
-            <span key={item.href}>
-              <a href={item.href} target="_blank" rel="noreferrer">
-                {item.label}
-              </a>{" "}
-              ({item.note})
-              {i < alsoShipped.length - 1 ? " and " : ". "}
-            </span>
-          ))}
+          {alsoShipped.map((item, i) => {
+            const last = i === alsoShipped.length - 1;
+            const nextLast = i === alsoShipped.length - 2;
+            return (
+              <span key={item.href}>
+                <a href={item.href} target="_blank" rel="noreferrer">
+                  {item.label}
+                </a>{" "}
+                ({item.note})
+                {last ? ". " : nextLast ? ", and " : ", "}
+              </span>
+            );
+          })}
           Source on{" "}
           <a href={site.links.github} target="_blank" rel="noreferrer">
             GitHub

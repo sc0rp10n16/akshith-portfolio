@@ -16,21 +16,11 @@ export function Contact() {
         </p>
 
         <div className="mt-12 flex flex-wrap gap-3">
-          <a
-            href={site.links.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-fill px-6 py-[0.9rem]"
-          >
-            LinkedIn <span>↗</span>
+          <a href={`mailto:${site.email}`} className="btn btn-fill px-6 py-[0.9rem]">
+            {site.email}
           </a>
-          <a
-            href={site.links.github}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-line px-6 py-[0.9rem]"
-          >
-            GitHub <span>↗</span>
+          <a href={site.links.resume} className="btn btn-line px-6 py-[0.9rem]">
+            CV.pdf
           </a>
         </div>
 

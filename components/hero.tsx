@@ -51,11 +51,11 @@ export function Hero() {
           <a href="#work" className="btn btn-fill">
             Read the case studies <span>→</span>
           </a>
-          <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="btn btn-line">
-            LinkedIn <span>↗</span>
+          <a href={site.links.resume} className="btn btn-line">
+            CV.pdf
           </a>
-          <a href="#contact" className="btn btn-ghost">
-            Contact
+          <a href={`mailto:${site.email}`} className="btn btn-ghost">
+            Email
           </a>
         </div>
       </div>

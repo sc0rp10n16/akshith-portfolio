@@ -1,4 +1,5 @@
-import { essay, path } from "@/lib/site";
+import Image from "next/image";
+import { essay, path, site } from "@/lib/site";
 
 export function Path() {
   return (
@@ -34,12 +35,15 @@ export function Path() {
           </ol>
 
           <div className="flex min-w-0 flex-[0.9] basis-80 flex-col gap-6">
-            <div className="hatch flex aspect-[4/5] items-end border border-line p-5">
-              <p className="font-pixel-mono m-0 text-[16px] leading-[1.4] text-faint">
-                Portrait
-                <br />
-                Magdeburg · Hyderabad
-              </p>
+            <div className="relative aspect-[4/5] overflow-hidden border border-line">
+              <Image
+                src="/akshith_potrait.png"
+                alt={site.name}
+                fill
+                sizes="(min-width: 1024px) 28rem, 90vw"
+                className="object-cover object-[50%_12%]"
+                priority={false}
+              />
             </div>
             <p className="m-0 text-[16px] leading-[1.8] text-muted">{essay}</p>
           </div>
