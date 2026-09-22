@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { crmStudy, site } from "@/lib/site";
+import Link from "next/link";
+import { crmStudy } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: crmStudy.title,
@@ -9,20 +10,7 @@ export const metadata: Metadata = {
 
 export default function EdmissionsCrmPage() {
   return (
-    <>
-      <header className="sticky top-0 z-50 border-b border-line bg-[rgb(12_13_11/0.92)] backdrop-blur-[6px]">
-        <div className="mx-auto flex max-w-[66rem] items-center justify-between gap-6 px-[clamp(1.25rem,4vw,3rem)] py-[0.9rem]">
-          <a
-            href="/#work"
-            className="kicker inline-flex min-h-11 items-center gap-2.5 text-muted no-underline transition-colors duration-300 hover:text-fg"
-          >
-            <span>←</span> {site.name}
-          </a>
-          <span className="kicker">Case study 01</span>
-        </div>
-      </header>
-
-      <article className="mx-auto max-w-[66rem] px-[clamp(1.25rem,4vw,3rem)] pt-[clamp(3rem,7vw,6rem)]">
+    <article className="mx-auto max-w-[66rem] px-[clamp(1.25rem,4vw,3rem)] pt-[clamp(3rem,7vw,6rem)]">
         <p className="kicker mb-5 flex flex-wrap gap-x-6 gap-y-3">
           <span className="text-signal">{crmStudy.kind}</span>
           <span>{crmStudy.org}</span>
@@ -104,12 +92,12 @@ export default function EdmissionsCrmPage() {
         </StudyBlock>
 
         <nav className="mt-[clamp(4rem,8vw,6rem)] flex flex-wrap items-center justify-between gap-4 border-t border-line py-8 pb-16">
-          <a
-            href="/#work"
+          <Link
+            href="/work"
             className="kicker inline-flex min-h-11 items-center gap-2.5 text-muted no-underline transition-colors duration-300 hover:text-fg"
           >
             <span>←</span> All work
-          </a>
+          </Link>
           <a
             href={crmStudy.source}
             target="_blank"
@@ -119,8 +107,7 @@ export default function EdmissionsCrmPage() {
             Source <span>↗</span>
           </a>
         </nav>
-      </article>
-    </>
+    </article>
   );
 }
 

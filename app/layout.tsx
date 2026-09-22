@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import localFont from "next/font/local";
-import { site } from "@/lib/site";
-import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
+import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import "./globals.css";
 
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 const pixelOperator = localFont({
   src: [
@@ -61,14 +65,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html
       lang="en"
-      className={cn("h-full", pixelOperator.variable, pixelOperatorMono.variable, jetbrainsMono.variable)}
+      data-scroll-behavior="smooth"
+      className={cn(
+        "h-full",
+        pixelOperator.variable,
+        pixelOperatorMono.variable,
+        jetbrainsMono.variable,
+      )}
     >
       <body className="relative min-h-full bg-bg font-sans text-fg">
-        <div className="grain" aria-hidden="true" />
         {children}
       </body>
     </html>

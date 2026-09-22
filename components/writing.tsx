@@ -19,7 +19,7 @@ export function Writing() {
 
         <div className="border-t border-line">
           {notes.map((note) => (
-            <a key={note.title} href="#writing" className="note-row">
+            <a key={note.title} href="/about/writings" className="note-row">
               <span className="min-w-0 flex-1 basis-96 text-[24px] leading-[1.35]">
                 {note.title}
               </span>

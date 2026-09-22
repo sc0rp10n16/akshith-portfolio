@@ -9,7 +9,7 @@ export const site = {
   description:
     "Akshith Mysa is co-founder and CTO of Klinn AI, and a Master's student in Advanced Semiconductor Nanotechnologies at OVGU Magdeburg. Previously AI engineering at OSCOWL and bio-inspired flight research at TiHAN–IIT Hyderabad.",
   url: "https://akshithmysa.com",
-  email: "akshith.mysa2025@gmail.com",
+  email: "akshithmysa.physics@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/akshithmysa",
     github: "https://github.com/sc0rp10n16",
@@ -18,23 +18,22 @@ export const site = {
     publication: "https://doi.org/10.1002/9781394268795.ch20",
     resume: "/resume.pdf",
     sriram: "https://github.com/sc0rp10n16/sriram-aero-landing",
-    germanquest: "https://github.com/sc0rp10n16/GermanQuest",
     crm: "https://github.com/sc0rp10n16/edmission-world-crm-v2",
     edmissions: "https://github.com/sc0rp10n16/edmissions-world-landing",
     pdfBuddy: "https://github.com/sc0rp10n16/pdf-buddy",
+    metaflow: "https://github.com/sc0rp10n16/metaflow-v2",
+    genau: "https://github.com/sc0rp10n16/Genau",
     aitut: "https://github.com/sc0rp10n16/AI_LMS",
     facialRecognition: "https://github.com/sc0rp10n16/FacialRecognitionSiameseNet",
     droNavNet: "https://github.com/sc0rp10n16/DroNavNet",
-    genau: "https://github.com/sc0rp10n16/Genau",
   },
 } as const;
 
 export const nav = [
-  { href: "#work", label: "Work" },
-  { href: "#research", label: "Research" },
-  { href: "#path", label: "Path" },
-  { href: "#writing", label: "Writing" },
-  { href: "#contact", label: "Contact" },
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+  { href: "/about/writings", label: "Writing" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export const facts = [
@@ -80,42 +79,59 @@ export const cases = [
     stack: ["Next.js 15", "TypeScript", "Firebase", "Cloud Functions", "LiveKit"],
   },
   {
-    id: "pdf-buddy",
+    id: "metaflow",
     index: "02",
-    kind: "LLM product",
+    kind: "Client · in progress",
+    year: "2026",
+    name: "Metaflow",
+    href: site.links.metaflow,
+    external: true,
+    cta: "View source",
+    role: "A multi-tenant website builder I am building for a client — templates, editor, billing, publish.",
+    problem:
+      "The client needed non-technical customers to stand up a professional site without a developer on every change, and without one tenant ever seeing another tenant's data.",
+    built:
+      "A SaaS control centre: pick a template, generate a category-shaped site, edit it on a Craft.js canvas, pay on Stripe, publish to a subdomain or custom domain. Postgres is tenant-scoped; an AI assistant drafts copy server-side.",
+    outcome: "Ongoing. The product is the builder, not a one-off brochure — still in delivery.",
+    stack: ["Next.js", "Postgres", "Stripe", "Craft.js", "GCP"],
+  },
+  {
+    id: "genau",
+    index: "03",
+    kind: "Hobby · in progress",
+    year: "2026",
+    name: "Genau",
+    href: site.links.genau,
+    external: true,
+    cta: "View source",
+    role: "A native iOS German trainer I am building to learn the language and to practise speaking it.",
+    problem:
+      "Streak apps drill words I will never say at the Bürgeramt, and they go quiet the moment I actually need to talk. I wanted something I would open on the tram.",
+    built:
+      "A SwiftUI app on SwiftData: noun gender drills (der / die / das), verb flashcards, a dictionary I can seed, and spoken feedback so I hear the form. Conversation practice is the part I am adding next — the point of the project, not a badge.",
+    outcome: "Ongoing. I use it to study German and to get the sentences into my mouth, not to keep a streak alive.",
+    stack: ["SwiftUI", "SwiftData", "Speech", "iOS"],
+  },
+  {
+    id: "pdf-buddy",
+    index: "04",
+    kind: "Hobby",
     year: "2024",
     name: "PDF Buddy",
     href: site.links.pdfBuddy,
     external: true,
     cta: "View source",
-    role: "A retrieval document assistant I built end to end — upload, index, ask, remember.",
+    role: "An earlier RAG experiment — upload a document, ask it questions, keep the thread.",
     problem:
-      "Reading a long PDF still meant scrolling, grepping, and losing the thread. Chatbots that 'read' the file once had no memory and no citations.",
+      "Reading a long PDF still meant scrolling, grepping, and losing the thread. Chatbots that 'read' the file once had no memory.",
     built:
       "A Next.js app where you drop a document, LangChain chunks it into Pinecone, and Gemini (or OpenAI) answers with chat memory. Clerk for auth, Firebase for files.",
-    outcome: "A working RAG companion: summaries, multi-turn questions, and the document still on screen.",
+    outcome: "A working companion from 2024: summaries, multi-turn questions, and the document still on screen. I have since moved on.",
     stack: ["Next.js", "LangChain", "Gemini", "Pinecone", "Clerk"],
   },
   {
-    id: "germanquest",
-    index: "03",
-    kind: "Mobile",
-    year: "2026",
-    name: "GermanQuest",
-    href: site.links.germanquest,
-    external: true,
-    cta: "View source",
-    role: "Offline-first German trainer I am building for arriving in Germany, not for a leaderboard.",
-    problem:
-      "Most A1 apps assume connectivity and gamify vocabulary you will never say at the Bürgeramt. I needed a pocket tool that still works on a train.",
-    built:
-      "React Native (Expo) plus a FastAPI / SQLite backend: 500+ survival words, offline translation, A1 modules, and progress that does not depend on a network.",
-    outcome: "A personal companion I actually use — vocabulary, drills, and a path I can keep when the signal drops.",
-    stack: ["React Native", "Expo", "FastAPI", "SQLite", "TypeScript"],
-  },
-  {
     id: "edmissions",
-    index: "04",
+    index: "05",
     kind: "Platform",
     year: "2025",
     name: "Edmissions World",
@@ -132,7 +148,7 @@ export const cases = [
   },
   {
     id: "ornithopter",
-    index: "05",
+    index: "06",
     kind: "Research",
     year: "TiHAN",
     name: "Autonomous Ornithopter Navigation",
@@ -151,7 +167,6 @@ export const cases = [
 ] as const;
 
 export const alsoShipped = [
-  { label: "Genau", href: site.links.genau, note: "Swift German drills" },
   { label: "AI LMS", href: site.links.aitut, note: "adaptive learning platform" },
   { label: "DroNavNet", href: site.links.droNavNet, note: "drone navigation nets" },
   { label: "Siamese face ID", href: site.links.facialRecognition, note: "one-shot embeddings" },

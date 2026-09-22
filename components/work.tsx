@@ -13,8 +13,9 @@ export function Work() {
             </h2>
           </div>
           <p className="m-0 max-w-[30ch] text-[16px] leading-[1.6] text-muted">
-            Production platforms, a RAG assistant, an offline language app, and
-            the navigation work that became a Wiley chapter.
+            Production CRM, a client website builder in progress, Genau for
+            German, an earlier RAG experiment, and the navigation work that
+            became a Wiley chapter.
           </p>
         </div>
 
