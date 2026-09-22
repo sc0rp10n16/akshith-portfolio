@@ -3,8 +3,13 @@ import { api } from "@/convex/_generated/api";
 import type { Id } from "@/convex/_generated/dataModel";
 import type { ResumeData, TemplateId } from "@/lib/studio/resume";
 
+function readEnv(name: string): string {
+  const value = process.env[name];
+  return typeof value === "string" ? value.trim() : "";
+}
+
 function studioSecret(): string {
-  const secret = process.env.CONVEX_STUDIO_SECRET;
+  const secret = readEnv("CONVEX_STUDIO_SECRET");
   if (!secret) {
     throw new Error("CONVEX_STUDIO_SECRET is not set");
   }
@@ -12,7 +17,10 @@ function studioSecret(): string {
 }
 
 function convexUrl(): string {
-  const url = process.env.CONVEX_URL ?? process.env.NEXT_PUBLIC_CONVEX_URL;
+  const url = (readEnv("CONVEX_URL") || readEnv("NEXT_PUBLIC_CONVEX_URL")).replace(
+    /\/+$/,
+    "",
+  );
   if (!url) {
     throw new Error("CONVEX_URL is not set");
   }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { alsoShipped, cases, site } from "@/lib/site";
+import { alsoShipped, cases, clientLandings, site } from "@/lib/site";
 
 export function Work() {
   return (
@@ -13,9 +13,9 @@ export function Work() {
             </h2>
           </div>
           <p className="m-0 max-w-[30ch] text-[16px] leading-[1.6] text-muted">
-            Production CRM, a client website builder in progress, Genau for
-            German, an earlier RAG experiment, and the navigation work that
-            became a Wiley chapter.
+            Two full-stack client platforms, SEO landings for consultancies and
+            pharma, Genau for German, an earlier RAG experiment, and the
+            navigation work that became a Wiley chapter.
           </p>
         </div>
 
@@ -87,6 +87,57 @@ export function Work() {
               </Link>
             );
           })}
+        </div>
+
+        <div className="mt-16">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="kicker kicker-signal mb-3">Client landings</p>
+              <h3 className="m-0 text-[clamp(24px,2.6vw,32px)] font-bold leading-[1.15]">
+                SEO-optimised public sites
+              </h3>
+            </div>
+            <p className="m-0 max-w-[34ch] text-[16px] leading-[1.6] text-muted">
+              Four live client sites. Same job: rank, explain the offering, and
+              take an enquiry without a phone call first.
+            </p>
+          </div>
+
+          <div className="grid gap-px border border-line bg-line sm:grid-cols-2">
+            {clientLandings.map((siteCard) => (
+              <a
+                key={siteCard.id}
+                href={siteCard.href}
+                target="_blank"
+                rel="noreferrer"
+                className="case-card flex flex-col bg-bg p-[clamp(1.5rem,3vw,2.25rem)] text-inherit no-underline"
+              >
+                <p className="kicker mb-4 flex flex-wrap items-center gap-3">
+                  <span className="text-signal">{siteCard.kind}</span>
+                  <span>{siteCard.year}</span>
+                </p>
+                <h3 className="m-0 text-[clamp(22px,2.2vw,28px)] font-bold leading-[1.2]">
+                  {siteCard.name}
+                </h3>
+                <p className="font-pixel-mono mt-2 mb-0 text-[16px] leading-[1.4] text-faint">
+                  {siteCard.host}
+                </p>
+                <p className="mt-4 mb-0 max-w-[42ch] flex-1 text-[16px] leading-[1.7] text-muted">
+                  {siteCard.note}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-[0.4rem]">
+                  {siteCard.stack.map((tech) => (
+                    <span key={tech} className="chip">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <span className="kicker kicker-signal mt-7 inline-flex items-center gap-2">
+                  Visit site <span>↗</span>
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
 
         <p className="mt-8 mb-0 text-[16px] leading-[1.7] text-faint">

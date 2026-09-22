@@ -1,4 +1,4 @@
-import { cases, essay, path, publication, site } from "@/lib/site";
+import { cases, clientLandings, essay, path, publication, site } from "@/lib/site";
 import {
   emptyResumeData,
   newItemId,
@@ -19,11 +19,12 @@ export function seedResumeData(): ResumeData {
   const experience = path.filter((row) => !isEducation(row.role));
   const education = path.filter((row) => isEducation(row.role));
 
-  const softwareStacks = unique(
-    cases
+  const softwareStacks = unique([
+    ...cases
       .filter((item) => item.id !== "ornithopter")
       .flatMap((item) => [...item.stack]),
-  );
+    ...clientLandings.flatMap((item) => [...item.stack]),
+  ]);
   const researchStacks = unique(
     cases
       .filter((item) => item.id === "ornithopter")
@@ -72,12 +73,30 @@ export function seedResumeData(): ResumeData {
       end: "",
       notes: row.body,
     })),
-    projects: cases.map((item) => ({
-      id: newItemId(),
-      name: item.name,
-      href: item.external ? item.href : `${site.url}${item.href}`,
-      bullets: [item.role, item.outcome].filter((line) => line.length > 0),
-    })),
+    projects: [
+      ...cases
+        .filter((item) => item.id === "crm" || item.id === "metaflow")
+        .map((item) => ({
+          id: newItemId(),
+          name: item.name,
+          href: item.external ? item.href : `${site.url}${item.href}`,
+          bullets: [item.role, item.outcome].filter((line) => line.length > 0),
+        })),
+      ...clientLandings.map((item) => ({
+        id: newItemId(),
+        name: item.name,
+        href: item.href,
+        bullets: [item.note],
+      })),
+      ...cases
+        .filter((item) => item.id !== "crm" && item.id !== "metaflow")
+        .map((item) => ({
+          id: newItemId(),
+          name: item.name,
+          href: item.external ? item.href : `${site.url}${item.href}`,
+          bullets: [item.role, item.outcome].filter((line) => line.length > 0),
+        })),
+    ],
     skills,
     extras: [
       {

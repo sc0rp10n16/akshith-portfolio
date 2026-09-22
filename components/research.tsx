@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { interests, publication } from "@/lib/site";
 
 export function Research() {
@@ -8,13 +9,21 @@ export function Research() {
         <h2 className="mb-5 max-w-[24ch] text-[clamp(32px,4vw,48px)] font-bold leading-[1.1]">
           What I want to do next
         </h2>
-        <p className="mb-14 max-w-[62ch] text-[16px] leading-[1.8] text-muted">
+        <p className="prose-links mb-14 max-w-[62ch] text-[16px] leading-[1.8] text-muted">
           I am looking for doctoral work at the boundary between device physics
           and the systems built on top of it — neuromorphic and in-memory
           compute, or nanoscale device characterisation with a strong
           measurement component. I have shipped software at production scale
           and published on control for unconventional flight; the master&apos;s
-          at OVGU is me going down a layer on purpose.
+          at OVGU is me going down a layer on purpose. I wrote that out in{" "}
+          <Link href="/writings/what-a-software-engineer-misinterprets-about-device-physics">
+            What a software engineer misinterprets about device physics
+          </Link>{" "}
+          and how we{" "}
+          <Link href="/writings/tuning-slam-against-a-flapping-period">
+            tuned SLAM against a flapping period
+          </Link>
+          .
         </p>
 
         <div className="flex flex-wrap gap-px border border-line bg-line">
@@ -38,9 +47,13 @@ export function Research() {
             <h3 className="m-0 max-w-[32ch] text-[clamp(24px,2.6vw,32px)] font-bold leading-[1.2]">
               {publication.title}
             </h3>
-            <p className="mt-4 mb-0 max-w-[60ch] text-[16px] leading-[1.7] text-muted">
+            <p className="prose-links mt-4 mb-0 max-w-[60ch] text-[16px] leading-[1.7] text-muted">
               Chapter 20 of <em>{publication.book}</em>. Control and navigation
-              for flapping-wing UAVs using UWB, SLAM and ROS, indoors and out.
+              for flapping-wing UAVs using UWB, SLAM and ROS, indoors and out.{" "}
+              <Link href="/writings/tuning-slam-against-a-flapping-period">
+                Essay: tuning SLAM against a flapping period
+              </Link>
+              .
             </p>
             <p className="font-pixel-mono mt-3.5 mb-0 max-w-[60ch] text-[16px] leading-[1.6] text-faint">
               {publication.authors.map((author, i) => (

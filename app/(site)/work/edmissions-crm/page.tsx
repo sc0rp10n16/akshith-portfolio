@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { crmStudy } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: crmStudy.title,
   description: crmStudy.lede,
-};
+  path: "/work/edmissions-crm",
+  type: "article",
+});
 
 export default function EdmissionsCrmPage() {
   return (
@@ -33,12 +36,6 @@ export default function EdmissionsCrmPage() {
             </div>
           ))}
         </dl>
-
-        <div className="hatch mt-12 flex aspect-video items-end border border-line p-5">
-          <p className="font-pixel-mono m-0 text-[16px] leading-[1.4] text-faint">
-            CRM pipeline view
-          </p>
-        </div>
 
         <StudyBlock index="01" title="The problem">
           {crmStudy.problem.map((paragraph) => (
@@ -85,6 +82,13 @@ export default function EdmissionsCrmPage() {
 
         <StudyBlock index="04" title="Outcome">
           <p className="m-0">{crmStudy.outcome}</p>
+          <p className="prose-links m-0 text-muted">
+            I wrote about why the floor could not have a kanban in{" "}
+            <Link href="/writings/why-the-crm-had-to-look-like-a-spreadsheet">
+              Why the CRM had to look like a spreadsheet
+            </Link>
+            .
+          </p>
         </StudyBlock>
 
         <StudyBlock index="05" title="What I would change">
@@ -98,14 +102,24 @@ export default function EdmissionsCrmPage() {
           >
             <span>←</span> All work
           </Link>
-          <a
-            href={crmStudy.source}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-signal"
-          >
-            Source <span>↗</span>
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={crmStudy.live}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-fill"
+            >
+              Live site <span>↗</span>
+            </a>
+            <a
+              href={crmStudy.source}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-signal"
+            >
+              Source <span>↗</span>
+            </a>
+          </div>
         </nav>
     </article>
   );

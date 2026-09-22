@@ -7,9 +7,19 @@ import { StudioChrome } from "@/components/studio/studio-chrome";
 import { requireStudioSession } from "@/lib/studio/auth";
 import { listResumes } from "@/lib/studio/convex";
 
+export const dynamic = "force-dynamic";
+
 export default async function ResumeIndexPage() {
   await requireStudioSession();
-  const resumes = await listResumes();
+
+  let resumes: Awaited<ReturnType<typeof listResumes>> = [];
+  let loadError: string | null = null;
+  try {
+    resumes = await listResumes();
+  } catch (error) {
+    loadError =
+      error instanceof Error ? error.message : "Failed to load resumes";
+  }
 
   return (
     <>
@@ -26,7 +36,13 @@ export default async function ResumeIndexPage() {
         </form>
       </StudioChrome>
       <main className="mx-auto w-full max-w-4xl px-[clamp(1.25rem,4vw,2rem)] py-10">
-        <ResumeList resumes={resumes} />
+        {loadError ? (
+          <p className="m-0 max-w-[52ch] text-signal" role="alert">
+            {loadError}
+          </p>
+        ) : (
+          <ResumeList resumes={resumes} />
+        )}
       </main>
     </>
   );

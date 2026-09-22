@@ -19,9 +19,15 @@ export const site = {
     resume: "/resume.pdf",
     sriram: "https://github.com/sc0rp10n16/sriram-aero-landing",
     crm: "https://github.com/sc0rp10n16/edmission-world-crm-v2",
+    crmLive: "https://crm.edmissionsworld.com",
     edmissions: "https://github.com/sc0rp10n16/edmissions-world-landing",
+    edmissionsLive: "https://edmissionsworld.com",
+    vridha: "https://vrindhaglobal.com",
+    vivpharma: "https://vivpharmalanka.com",
+    bioskora: "https://bioskora.com",
     pdfBuddy: "https://github.com/sc0rp10n16/pdf-buddy",
     metaflow: "https://github.com/sc0rp10n16/metaflow-v2",
+    metaflowLive: "https://metaflow.in",
     genau: "https://github.com/sc0rp10n16/Genau",
     aitut: "https://github.com/sc0rp10n16/AI_LMS",
     facialRecognition: "https://github.com/sc0rp10n16/FacialRecognitionSiameseNet",
@@ -32,7 +38,7 @@ export const site = {
 export const nav = [
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/about/writings", label: "Writing" },
+  { href: "/writings", label: "Writings" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -42,7 +48,7 @@ export const facts = [
     before: "Co-founder & CTO, ",
     linkLabel: "Klinn AI",
     href: site.links.klinn,
-    after: " — enterprise platforms in production since 2025",
+    after: " — client platforms and SEO sites in production since 2025",
   },
   {
     k: "Studying",
@@ -64,35 +70,37 @@ export const cases = [
   {
     id: "crm",
     index: "01",
-    kind: "Enterprise CRM",
+    kind: "Client · Full-stack",
     year: "2025–26",
     name: "Edmissions World CRM",
     href: "/work/edmissions-crm",
     external: false,
     cta: "Read case study",
-    role: "Klinn AI's production staff CRM. I owned architecture, data model and delivery.",
+    role: "Klinn AI's production staff CRM, live at crm.edmissionsworld.com. I owned architecture, data model and delivery.",
     problem:
       "An education consultancy ran its admissions floor across spreadsheets, WhatsApp and memory. Five jobs — calling, qualification, documents, walk-ins, management — lived in five places.",
     built:
       "A private, role-based CRM: shared lead pipeline, telecaller qualification, counselor documents, reception walk-ins, WhatsApp templates, and an overnight job that reopens no-contact leads.",
-    outcome: "In production. Admin, managers, telecallers, counselors and reception work one pipeline instead of three spreadsheets.",
+    outcome:
+      "In production at crm.edmissionsworld.com. Admin, managers, telecallers, counselors and reception work one pipeline instead of three spreadsheets.",
     stack: ["Next.js 15", "TypeScript", "Firebase", "Cloud Functions", "LiveKit"],
   },
   {
     id: "metaflow",
     index: "02",
-    kind: "Client · in progress",
+    kind: "Client · Full-stack",
     year: "2026",
     name: "Metaflow",
-    href: site.links.metaflow,
+    href: site.links.metaflowLive,
     external: true,
-    cta: "View source",
-    role: "A multi-tenant website builder I am building for a client — templates, editor, billing, publish.",
+    cta: "Visit site",
+    role: "A multi-tenant business platform for a client — website, admin, payments, industry workflows, publish.",
     problem:
       "The client needed non-technical customers to stand up a professional site without a developer on every change, and without one tenant ever seeing another tenant's data.",
     built:
       "A SaaS control centre: pick a template, generate a category-shaped site, edit it on a Craft.js canvas, pay on Stripe, publish to a subdomain or custom domain. Postgres is tenant-scoped; an AI assistant drafts copy server-side.",
-    outcome: "Ongoing. The product is the builder, not a one-off brochure — still in delivery.",
+    outcome:
+      "Live at metaflow.in. The product is the builder — a full-stack platform, not a one-off brochure.",
     stack: ["Next.js", "Postgres", "Stripe", "Craft.js", "GCP"],
   },
   {
@@ -130,25 +138,8 @@ export const cases = [
     stack: ["Next.js", "LangChain", "Gemini", "Pinecone", "Clerk"],
   },
   {
-    id: "edmissions",
-    index: "05",
-    kind: "Platform",
-    year: "2025",
-    name: "Edmissions World",
-    href: site.links.edmissions,
-    external: true,
-    cta: "View source",
-    role: "Public-facing counterpart to the CRM, including MBBS admission pathways.",
-    problem:
-      "Prospective students had no way to compare pathways or start an application without a phone call, so every enquiry became manual work for the consultancy.",
-    built:
-      "Programme and pathway surfaces with structured enquiry capture that writes straight into the CRM pipeline the internal team works out of.",
-    outcome: "Enquiries arrive as structured records instead of a phone call and a spreadsheet row.",
-    stack: ["Next.js", "SSG", "CMS-driven content", "CRM integration"],
-  },
-  {
     id: "ornithopter",
-    index: "06",
+    index: "05",
     kind: "Research",
     year: "TiHAN",
     name: "Autonomous Ornithopter Navigation",
@@ -163,6 +154,49 @@ export const cases = [
     outcome:
       "Published as chapter 20 in Artificial Intelligence Applications in Aeronautical and Aerospace Engineering (Wiley, 2025).",
     stack: ["ROS", "ORB-SLAM3", "UWB", "Python", "Flight testing"],
+  },
+] as const;
+
+export const clientLandings = [
+  {
+    id: "edmissions",
+    kind: "SEO landing",
+    year: "2025",
+    name: "Edmissions World",
+    href: site.links.edmissionsLive,
+    host: "edmissionsworld.com",
+    note: "MBBS admissions consultancy. Programme and country pages, structured data, enquiry that writes into the staff CRM.",
+    stack: ["Next.js", "SSG", "JSON-LD", "CRM integration"],
+  },
+  {
+    id: "vridha",
+    kind: "SEO landing",
+    year: "2025",
+    name: "Vrindha Global",
+    href: site.links.vridha,
+    host: "vrindhaglobal.com",
+    note: "Overseas education consultancy — study-abroad counselling, visa assistance and university admissions, built to rank and take an enquiry.",
+    stack: ["Next.js", "SSG", "SEO"],
+  },
+  {
+    id: "vivpharma",
+    kind: "SEO landing",
+    year: "2025",
+    name: "VIV Pharma Lanka",
+    href: site.links.vivpharma,
+    host: "vivpharmalanka.com",
+    note: "Healthcare innovation presence for a Sri Lankan pharma company — ethical practice and patient-centric copy, built to rank.",
+    stack: ["Next.js", "SSG", "SEO"],
+  },
+  {
+    id: "bioskora",
+    kind: "SEO landing",
+    year: "2025",
+    name: "BioSkora Scientifics",
+    href: site.links.bioskora,
+    host: "bioskora.com",
+    note: "Pharmaceutical engineering, validation, GMP consulting and laboratory solutions — technical services made searchable.",
+    stack: ["Next.js", "SSG", "SEO"],
   },
 ] as const;
 
@@ -202,7 +236,7 @@ export const path = [
     period: "2025 — now",
     role: "Co-founder & CTO",
     org: "Klinn AI",
-    body: "Architecture and delivery for production platforms: CRMs, admissions systems, internal tools. Software that has to work on a Tuesday, not just in a deck.",
+    body: "Architecture and delivery for production platforms: a staff CRM, a multi-tenant business builder, and SEO landings for clients who needed to rank. Software that has to work on a Tuesday, not just in a deck.",
   },
   {
     period: "2024 — 25",
@@ -247,13 +281,7 @@ export const publication = {
 } as const;
 
 export const essay =
-  "Most of the last two years went into shipping. Klinn AI is the company I co-founded to build production software for operations that cannot afford theatre. Before that I was in Hyderabad's deep-tech pocket: bio-inspired drones at TiHAN, then applied AI at OSCOWL. The master's at OVGU is the layer I kept skipping — models and products are downstream of devices.";
-
-export const notes = [
-  { title: "Why the CRM had to look like a spreadsheet", tag: "Platforms", date: "Note" },
-  { title: "Tuning SLAM against a flapping period", tag: "Autonomy", date: "Note" },
-  { title: "What a software engineer misinterprets about device physics", tag: "Silicon", date: "Note" },
-] as const;
+  "Most of the last two years went into shipping. Klinn AI is the company I co-founded to build production software for operations that cannot afford theatre — full-stack platforms and the SEO sites that feed them. Before that I was in Hyderabad's deep-tech pocket: bio-inspired drones at TiHAN, then applied AI at OSCOWL. The master's at OVGU is the layer I kept skipping — models and products are downstream of devices.";
 
 export const elsewhere = [
   { label: "LinkedIn", href: site.links.linkedin },
@@ -263,16 +291,17 @@ export const elsewhere = [
 
 export const crmStudy = {
   title: "Edmissions World CRM",
-  kind: "Enterprise CRM",
+  kind: "Client · Full-stack",
   org: "Klinn AI",
   year: "2025–26",
   lede: "A private staff CRM for an admissions floor that had no single answer to who owned a lead. This is the system that replaced the spreadsheets.",
+  live: site.links.crmLive,
   source: site.links.crm,
   facts: [
     { k: "Role", v: "Architecture, data model, delivery" },
     { k: "Type", v: "Private staff CRM — not a student portal" },
     { k: "Roles", v: "Admin, sales manager, telecaller, counselor, receptionist" },
-    { k: "Status", v: "In production (v2)" },
+    { k: "Live", v: "crm.edmissionsworld.com" },
   ],
   problem: [
     "Edmissions World places students into medical and undergraduate programmes abroad. The floor is a chain: a sales manager imports and assigns leads, a telecaller works the queue, a counselor takes the qualified student through documents and applications, reception records walk-ins. Overnight, yesterday's no-contact leads have to come back.",
@@ -315,7 +344,7 @@ export const crmStudy = {
     },
   ],
   outcome:
-    "The consultancy now runs its admissions cycle out of the CRM rather than alongside it. Five roles share one pipeline. The two questions that used to take an afternoon — who owns this lead, which follow-ups were missed — have a screen.",
+    "The consultancy now runs its admissions cycle out of crm.edmissionsworld.com rather than alongside it. Five roles share one pipeline. The two questions that used to take an afternoon — who owns this lead, which follow-ups were missed — have a screen.",
   change:
     "Application progress still mutates the lead rather than sitting in a first-class collection. Leave is still two stacks. I would have split applications earlier and killed the legacy leave API before the second year of production — retrofitting both later costs more than building them would have.",
 } as const;

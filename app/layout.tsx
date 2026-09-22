@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
+import { JsonLd } from "@/components/json-ld";
+import { defaultOgImage, personJsonLd, websiteJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -52,16 +54,39 @@ export const metadata: Metadata = {
   },
   description: site.description,
   metadataBase: new URL(site.url),
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  keywords: [
+    "Akshith Mysa",
+    "Klinn AI",
+    "semiconductor nanotechnologies",
+    "OVGU Magdeburg",
+    "autonomous ornithopter",
+    "Edmissions World CRM",
+  ],
   openGraph: {
     title: site.name,
     description: site.tagline,
     type: "website",
     locale: "en_GB",
+    url: site.url,
+    siteName: site.name,
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
     title: site.name,
     description: site.tagline,
+    images: [defaultOgImage.url],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
   },
 };
 
@@ -82,6 +107,8 @@ export default function RootLayout({
       )}
     >
       <body className="relative min-h-full bg-bg font-sans text-fg">
+        <JsonLd data={personJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
         {children}
       </body>
     </html>

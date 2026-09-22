@@ -1,49 +1,100 @@
-# Extra sprites for the site guide
+# CRM pipeline view — image prompt
 
-Generate **one** PNG sprite sheet of the same character already on the site:
+Use this to generate the hero image for the Edmissions World CRM case study (`/work/edmissions-crm`, the 16:9 “CRM pipeline view” slot).
 
-- Indian man, mid-20s, curly dark brown hair, full beard, black sunglasses
-- Navy blue suit jacket, white open-collar shirt, dark trousers, black-and-white sneakers
-- True 8-bit / 16-bit SNES pixel art, chunky pixels, limited palette, dark outlines
-- Same proportions as the existing idle / walk / wave / type sheets
-- **Transparent background** (no white, no paper, no drop shadow)
-- **No titles, numbers, captions, or watermarks**
-- Even grid, each cell **128×160 px**, 8px padding of empty transparent space around the figure so frames can be cropped consistently
-- Character vertically aligned to the **bottom** of each cell (feet on the same baseline)
-- Even lighting, no anti-alias, no blur, no photorealism
+Generate **one** still. Not a collage. Not a mockup on a laptop. Not a kanban.
 
-## Sheet layout (left → right, top → bottom)
+---
 
-Row 1 — **Idle breathe** (4 frames)
-Subtle chest/shoulder bob, hands in pockets, facing camera.
+## Copy-paste prompt
 
-Row 2 — **Wave** (6 frames)
-Start idle → raise right hand with 2–3 motion lines → peak wave → back to idle.
+A 16:9 desktop screenshot of a **private staff CRM pipeline**, viewed as a dense **spreadsheet-style lead table** (not cards, not a Kanban board, not a CRM template from Dribbble).
 
-Row 3 — **Walk cycle, facing right** (8 frames)
-Classic side-view loop. Same foot-plant, no sliding.
+Product: **Edmissions World CRM** — admissions floor software for an education consultancy in Hyderabad. Staff tool only. No student portal. No marketing website.
 
-Row 4 — **Walk cycle, facing left** (8 frames)
-Exact mirror of row 3. I do not have this yet.
+Photoreal UI screenshot, slightly grainy OLED monitor, shot straight-on, no bezel, no phone, no hands.
 
-Row 5 — **Typing, seated cross-legged with silver laptop** (4 frames)
-Tiny hand/key motion, slight head nod.
+### Layout
 
-Row 6 — **Talk / explain** (4 frames)
-Standing, facing camera, one hand out as if speaking. Mouth open on 2 of the 4 frames. This is for the speech-bubble guide.
+Dark app chrome, almost black olive (`#0c0d0b`), raised panels `#131410`, hairline borders in warm off-white at ~12% opacity.
 
-Row 7 — **Point right** (4 frames)
-Standing, pointing to the right with the right arm. Hold the point, tiny bounce. For “go look at this page”.
+**Left sidebar (narrow)**
+- Wordmark: EDMISSIONS WORLD CRM in a chunky pixel / bitmap mono, 16px feel
+- Role badge: SALES MANAGER
+- Nav: Leads, Follow-ups, DNP, Teams, Reports, Leave
+- Leads item is active, marked with a thin ice-blue (`#7eb4ff`) bar
 
-Row 8 — **Happy bounce** (4 frames)
-Feet leave the ground 1–2 px, tiny pink heart particles (2–3 pixels) above the head. For a max pet-combo.
+**Top bar**
+- Search leads
+- Daily cap 42 / 50
+- Asia/Kolkata 00:05 job hint: “NoContact → Follow-up 1 overnight”
+- User chip: R. Sharma · Manager
 
-Row 9 — **Jump** (3 frames)
-Crouch, stretch in air, land. Keep the suit readable.
+**Main view — THE PIPELINE (must dominate the frame)**
+A spreadsheet grid filling the remaining width. Many rows visible (28–40). High information density. Rows are the unit of work.
 
-## Output
+Columns, left to right, readable at a glance:
+1. Checkbox
+2. Student name (Indian names: Priya S., Arjun V., Fatima A., Rahul M., Sneha Iyer, Daniel P.)
+3. Source (CSV, Walk-in, WhatsApp)
+4. Owner (telecaller first names)
+5. Team
+6. Status
+7. Follow-up date
+8. Counselor
+9. Notes (one short clause)
 
-- Single PNG, 1024×1440 or similar multiple of the cell size
-- PNG-24 with alpha
-- Character identical across every row (hair, beard, glasses, suit)
-- If you must split, keep the same cell size and naming: `idle`, `wave`, `walk-right`, `walk-left`, `type`, `talk`, `point`, `happy`, `jump`
+**Status chips** (use these exact labels, mixed down the column):
+New · In progress · No contact · Follow-up 1 · Follow-up 2 · Follow-up 3 · Qualified · Counselor-assigned
+
+Status colour: ice-blue outline for Qualified / Counselor-assigned; muted warm grey for No contact; default off-white for the rest. No rainbow Material chips. No green “success” pills.
+
+One row is selected (subtle raised background `#131410`, left ice-blue hairline). The selected row’s notes read: “Called twice. Father will send 10th marks. Qualify to counselor.”
+
+A slim filter row above the grid: Status, Owner, Team, Follow-up today. Pixel-mono labels, uppercase, 1px letter-spacing.
+
+Tiny footer: 1,248 leads · 37 missed follow-ups · DNP 11
+
+### What this is NOT
+
+- Not a Kanban / Trello / HubSpot pipeline with cards
+- Not a student application portal
+- Not a mobile app
+- Not a 3D glass morphism dashboard with giant donut charts
+- Not light mode
+- Not rounded-everything SaaS (8px max radius, mostly 0–2px)
+- No logos of Salesforce, HubSpot, Notion
+- No watermarks, no “AI generated”, no captions overlaid, no fake browser URL bar unless it is a thin dark Chrome with localhost omitted
+- No Lorem ipsum. English UI, Indian names.
+
+### Palette (match the portfolio)
+
+- Background: `#0c0d0b`
+- Text: `#ece6d8`
+- Muted: `#a39d90`
+- Signal / active: `#7eb4ff`
+- Signal dim: `#5a87c4`
+- Hairlines: `rgba(236,230,216,0.12)`
+
+Typography: UI labels in a bitmap / pixel-operator mono (think Pixel Operator Mono, JetBrains Mono as fallback). Body names in a clean grotesque. No Inter-on-white. No Inter-on-purple.
+
+Lighting: flat UI, no drop shadows heavier than 1px, no bloom, no neon glow except the ice-blue selection bar.
+
+### Output
+
+- Single PNG, **16:9**, **2400 × 1350** (or 1920 × 1080)
+- PNG-24, no alpha needed (opaque)
+- Crop tight to the app. Full-bleed UI.
+- Must read as a **working admissions floor tool**, not a concept deck.
+
+---
+
+## Negative prompt (if the tool has one)
+
+kanban, trello, cards, sticky notes, light mode, white background, purple gradient, glassmorphism, 3D, isometric, laptop mockup, phone mockup, hands, watermark, illegible tiny text, rainbow status pills, Salesforce, HubSpot, generic CRM template, student login, cute illustrations, isometric office
+
+---
+
+## After you generate
+
+Save as `public/crm-pipeline-view.png` (or send the file) if you want it on the case study.
