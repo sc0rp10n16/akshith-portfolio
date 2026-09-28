@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { RichText } from "@/components/rich-text";
 import { absoluteUrl } from "@/lib/seo";
@@ -74,21 +75,13 @@ export function BlogPost({ post }: { post: WritingPost }) {
     <article className="mx-auto max-w-[66rem] px-[clamp(1.25rem,4vw,3rem)] pt-[clamp(3rem,7vw,6rem)]">
       <JsonLd data={jsonLd} />
 
-      <nav aria-label="Breadcrumb" className="kicker mb-8 flex flex-wrap gap-x-3 gap-y-2">
-        <Link href="/" className="text-muted no-underline hover:text-fg">
-          Home
-        </Link>
-        <span className="text-faint" aria-hidden="true">
-          /
-        </span>
-        <Link href="/writings" className="text-muted no-underline hover:text-fg">
-          Writings
-        </Link>
-        <span className="text-faint" aria-hidden="true">
-          /
-        </span>
-        <span className="text-fg">{post.tag}</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/writings", label: "Writings" },
+          { label: post.title },
+        ]}
+      />
 
       <p className="kicker mb-5 flex flex-wrap items-center gap-x-6 gap-y-3">
         <span className="text-signal">{post.tag}</span>

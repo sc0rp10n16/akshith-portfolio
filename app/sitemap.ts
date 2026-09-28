@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url("/writings"), lastModified: new Date("2026-09-22"), changeFrequency: "weekly", priority: 0.8 },
     { url: url("/about"), lastModified: new Date("2026-09-22"), changeFrequency: "monthly", priority: 0.7 },
     { url: url("/contact"), lastModified: new Date("2026-09-22"), changeFrequency: "yearly", priority: 0.5 },
+    { url: url("/resume.pdf"), lastModified: new Date("2026-09-22"), changeFrequency: "yearly", priority: 0.4 },
   ];
 
   const posts: MetadataRoute.Sitemap = writings.map((post) => ({

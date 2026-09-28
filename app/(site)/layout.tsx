@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
+import { JsonLd } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
+import { personJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export default function SiteLayout({
   children,
@@ -8,6 +10,8 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <JsonLd data={personJsonLd()} />
+      <JsonLd data={websiteJsonLd()} />
       <div className="grain" aria-hidden="true" />
       <a
         href="#main"

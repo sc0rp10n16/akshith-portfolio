@@ -17,7 +17,6 @@ export const site = {
     oscowl: "https://www.oscowl.in",
     publication: "https://doi.org/10.1002/9781394268795.ch20",
     resume: "/resume.pdf",
-    sriram: "https://github.com/sc0rp10n16/sriram-aero-landing",
     crm: "https://github.com/sc0rp10n16/edmission-world-crm-v2",
     crmLive: "https://crm.edmissionsworld.com",
     edmissions: "https://github.com/sc0rp10n16/edmissions-world-landing",
@@ -204,7 +203,6 @@ export const alsoShipped = [
   { label: "AI LMS", href: site.links.aitut, note: "adaptive learning platform" },
   { label: "DroNavNet", href: site.links.droNavNet, note: "drone navigation nets" },
   { label: "Siamese face ID", href: site.links.facialRecognition, note: "one-shot embeddings" },
-  { label: "Sriram Aero", href: site.links.sriram, note: "aerospace presence, 2025" },
 ] as const;
 
 export const interests = [

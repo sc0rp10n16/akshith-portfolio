@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Contact } from "@/components/contact";
-import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -10,5 +11,21 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function ContactPage() {
-  return <Contact />;
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
+      <Contact
+        titleLevel="h1"
+        crumbs={[
+          { href: "/", label: "Home" },
+          { label: "Contact" },
+        ]}
+      />
+    </>
+  );
 }

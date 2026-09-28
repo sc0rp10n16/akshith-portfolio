@@ -7,12 +7,15 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer";
-import type { ResumeData, TemplateId } from "@/lib/studio/resume";
+import type { Style } from "@react-pdf/types";
 import {
-  contactLine,
-  filledLines,
-  templateTokens,
-} from "@/lib/studio/templates";
+  contactParts,
+  linkHref,
+  splitLinkPieces,
+  type LinkPiece,
+} from "@/lib/studio/links";
+import type { ResumeData, TemplateId } from "@/lib/studio/resume";
+import { filledLines, templateTokens } from "@/lib/studio/templates";
 
 export function ResumePdf({
   data,
@@ -23,7 +26,7 @@ export function ResumePdf({
 }) {
   const tokens = templateTokens[templateId];
   const styles = makeStyles(tokens);
-  const contacts = contactLine(data);
+  const contacts = contactParts(data);
   const experience = data.experience.filter(
     (row) => row.role.trim() || row.company.trim() || filledLines(row.bullets).length > 0,
   );
@@ -44,12 +47,21 @@ export function ResumePdf({
           {data.headline.trim() ? (
             <Text style={styles.headline}>{data.headline.trim()}</Text>
           ) : null}
-          {contacts ? <Text style={styles.contacts}>{contacts}</Text> : null}
+          {contacts.length > 0 ? (
+            <Text style={styles.contacts}>
+              {contacts.map((part, index) => (
+                <Text key={`${index}-${part.text}`}>
+                  {index > 0 ? "  ·  " : ""}
+                  <LinkedRun piece={part} linkStyle={styles.link} />
+                </Text>
+              ))}
+            </Text>
+          ) : null}
         </View>
 
         {data.summary.trim() ? (
           <Section title="Summary" styles={styles}>
-            <Text style={styles.body}>{data.summary.trim()}</Text>
+            <LinkedText text={data.summary.trim()} style={styles.body} linkStyle={styles.link} />
           </Section>
         ) : null}
 
@@ -92,7 +104,11 @@ export function ResumePdf({
                   <Text style={styles.italic}>{row.location.trim()}</Text>
                 ) : null}
                 {row.notes.trim() ? (
-                  <Text style={styles.body}>{row.notes.trim()}</Text>
+                  <LinkedText
+                    text={row.notes.trim()}
+                    style={styles.body}
+                    linkStyle={styles.link}
+                  />
                 ) : null}
               </View>
             ))}
@@ -103,11 +119,11 @@ export function ResumePdf({
           <Section title="Projects" styles={styles}>
             {projects.map((row) => (
               <View key={row.id} style={styles.block} wrap={false}>
-                <Text style={styles.bold}>
+                <Text style={styles.itemTitle}>
                   {row.name.trim() || "Project"}
                   {row.href.trim() ? " — " : ""}
                   {row.href.trim() ? (
-                    <Link src={row.href.trim()} style={styles.link}>
+                    <Link src={absoluteHref(row.href)} style={styles.link}>
                       {row.href.trim()}
                     </Link>
                   ) : null}
@@ -121,10 +137,12 @@ export function ResumePdf({
         {skills.length > 0 ? (
           <Section title="Skills" styles={styles}>
             {skills.map((row) => (
-              <Text key={row.id} style={styles.body}>
-                {row.group.trim() ? `${row.group.trim()}: ` : ""}
-                {row.items.trim()}
-              </Text>
+              <LinkedText
+                key={row.id}
+                text={`${row.group.trim() ? `${row.group.trim()}: ` : ""}${row.items.trim()}`}
+                style={styles.body}
+                linkStyle={styles.link}
+              />
             ))}
           </Section>
         ) : null}
@@ -133,17 +151,21 @@ export function ResumePdf({
           <Section title="Additional" styles={styles}>
             {extras.map((row) => (
               <View key={row.id} style={styles.block} wrap={false}>
-                <Text style={styles.bold}>
+                <Text style={styles.itemTitle}>
                   {row.title.trim() || "Item"}
                   {row.href.trim() ? " — " : ""}
                   {row.href.trim() ? (
-                    <Link src={row.href.trim()} style={styles.link}>
+                    <Link src={absoluteHref(row.href)} style={styles.link}>
                       {row.href.trim()}
                     </Link>
                   ) : null}
                 </Text>
                 {row.body.trim() ? (
-                  <Text style={styles.body}>{row.body.trim()}</Text>
+                  <LinkedText
+                    text={row.body.trim()}
+                    style={styles.body}
+                    linkStyle={styles.link}
+                  />
                 ) : null}
               </View>
             ))}
@@ -171,6 +193,52 @@ function Section({
   );
 }
 
+function absoluteHref(raw: string): string {
+  const value = raw.trim();
+  return linkHref(value) ?? value;
+}
+
+function LinkedRun({
+  piece,
+  linkStyle,
+}: {
+  piece: LinkPiece;
+  linkStyle: Style;
+}) {
+  if (!piece.href) {
+    return piece.text;
+  }
+
+  return (
+    <Link src={piece.href} style={linkStyle}>
+      {piece.text}
+    </Link>
+  );
+}
+
+function LinkedText({
+  text,
+  style,
+  linkStyle,
+}: {
+  text: string;
+  style?: Style;
+  linkStyle: Style;
+}) {
+  const pieces = splitLinkPieces(text);
+  if (!pieces.some((piece) => piece.href)) {
+    return <Text style={style}>{text}</Text>;
+  }
+
+  return (
+    <Text style={style}>
+      {pieces.map((piece, index) => (
+        <LinkedRun key={`${index}-${piece.text}`} piece={piece} linkStyle={linkStyle} />
+      ))}
+    </Text>
+  );
+}
+
 function Bullets({
   items,
   styles,
@@ -187,7 +255,7 @@ function Bullets({
       {items.map((item) => (
         <View key={item} style={styles.bulletRow}>
           <Text style={styles.bulletMark}>•</Text>
-          <Text style={styles.bulletText}>{item}</Text>
+          <LinkedText text={item} style={styles.bulletText} linkStyle={styles.link} />
         </View>
       ))}
     </View>
@@ -246,6 +314,9 @@ function makeStyles(tokens: (typeof templateTokens)[TemplateId]) {
       fontFamily: "Helvetica-Bold",
       flexGrow: 1,
       flexShrink: 1,
+    },
+    itemTitle: {
+      fontFamily: "Helvetica-Bold",
     },
     muted: {
       color: "#333333",

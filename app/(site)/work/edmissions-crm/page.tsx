@@ -1,19 +1,37 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { JsonLd } from "@/components/json-ld";
 import { crmStudy } from "@/lib/site";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, caseStudyJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: crmStudy.title,
   description: crmStudy.lede,
   path: "/work/edmissions-crm",
   type: "article",
+  publishedTime: "2026-03-18",
 });
 
 export default function EdmissionsCrmPage() {
   return (
     <article className="mx-auto max-w-[66rem] px-[clamp(1.25rem,4vw,3rem)] pt-[clamp(3rem,7vw,6rem)]">
+        <JsonLd
+          data={breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+            { name: crmStudy.title, path: "/work/edmissions-crm" },
+          ])}
+        />
+        <JsonLd data={caseStudyJsonLd()} />
+        <Breadcrumbs
+          items={[
+            { href: "/", label: "Home" },
+            { href: "/work", label: "Work" },
+            { label: crmStudy.title },
+          ]}
+        />
         <p className="kicker mb-5 flex flex-wrap gap-x-6 gap-y-3">
           <span className="text-signal">{crmStudy.kind}</span>
           <span>{crmStudy.org}</span>

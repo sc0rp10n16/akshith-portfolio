@@ -1,16 +1,27 @@
 import Link from "next/link";
+import { Breadcrumbs, type Crumb } from "@/components/breadcrumbs";
 import { alsoShipped, cases, clientLandings, site } from "@/lib/site";
 
-export function Work() {
+export function Work({
+  titleLevel = "h2",
+  crumbs,
+}: {
+  titleLevel?: "h1" | "h2";
+  crumbs?: readonly Crumb[];
+}) {
+  const Title = titleLevel === "h1" ? "h1" : "h2";
+  const BlockTitle = titleLevel === "h1" ? "h2" : "h3";
+
   return (
     <section id="work" className="section">
       <div className="mx-auto max-w-[88rem]">
+        {crumbs ? <Breadcrumbs items={crumbs} /> : null}
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="kicker kicker-signal mb-3">01 / Work</p>
-            <h2 className="m-0 text-[clamp(32px,4vw,48px)] font-bold leading-[1.1]">
+            <Title className="m-0 text-[clamp(32px,4vw,48px)] font-bold leading-[1.1]">
               Selected systems, in detail
-            </h2>
+            </Title>
           </div>
           <p className="m-0 max-w-[30ch] text-[16px] leading-[1.6] text-muted">
             Two full-stack client platforms, SEO landings for consultancies and
@@ -29,9 +40,9 @@ export function Work() {
                     <span>{cs.kind}</span>
                     <span>{cs.year}</span>
                   </p>
-                  <h3 className="m-0 text-[clamp(24px,2.6vw,32px)] font-bold leading-[1.15]">
+                  <BlockTitle className="m-0 text-[clamp(24px,2.6vw,32px)] font-bold leading-[1.15]">
                     {cs.name}
-                  </h3>
+                  </BlockTitle>
                   <p className="mt-4 mb-0 max-w-[40ch] text-[16px] leading-[1.7] text-muted">
                     {cs.role}
                   </p>
@@ -93,9 +104,9 @@ export function Work() {
           <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="kicker kicker-signal mb-3">Client landings</p>
-              <h3 className="m-0 text-[clamp(24px,2.6vw,32px)] font-bold leading-[1.15]">
+              <BlockTitle className="m-0 text-[clamp(24px,2.6vw,32px)] font-bold leading-[1.15]">
                 SEO-optimised public sites
-              </h3>
+              </BlockTitle>
             </div>
             <p className="m-0 max-w-[34ch] text-[16px] leading-[1.6] text-muted">
               Four live client sites. Same job: rank, explain the offering, and
@@ -116,9 +127,9 @@ export function Work() {
                   <span className="text-signal">{siteCard.kind}</span>
                   <span>{siteCard.year}</span>
                 </p>
-                <h3 className="m-0 text-[clamp(22px,2.2vw,28px)] font-bold leading-[1.2]">
+                <BlockTitle className="m-0 text-[clamp(22px,2.2vw,28px)] font-bold leading-[1.2]">
                   {siteCard.name}
-                </h3>
+                </BlockTitle>
                 <p className="font-pixel-mono mt-2 mb-0 text-[16px] leading-[1.4] text-faint">
                   {siteCard.host}
                 </p>

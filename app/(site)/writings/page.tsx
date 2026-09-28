@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { WritingsIndexJsonLd } from "@/components/blog-post";
-import { pageMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import {
   formatWritingDate,
   readingMinutes,
@@ -30,7 +32,19 @@ export default function WritingsPage() {
   return (
     <div className="mx-auto max-w-[88rem] px-[clamp(1.25rem,4vw,3rem)] pt-[clamp(3rem,7vw,6rem)] pb-[clamp(4rem,8vw,7rem)]">
       <WritingsIndexJsonLd />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Writings", path: "/writings" },
+        ])}
+      />
 
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "Home" },
+          { label: "Writings" },
+        ]}
+      />
       <p className="kicker kicker-signal mb-3">Writings</p>
       <h1 className="m-0 max-w-[18ch] text-[clamp(32px,6vw,64px)] font-bold leading-[1.05]">
         Essays

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/json-ld";
 import { Path } from "@/components/path";
 import { Research } from "@/components/research";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata, publicationJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -13,7 +14,20 @@ export const metadata: Metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <Path />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
+      <JsonLd data={publicationJsonLd()} />
+      <Path
+        titleLevel="h1"
+        crumbs={[
+          { href: "/", label: "Home" },
+          { label: "About" },
+        ]}
+      />
       <Research />
     </>
   );

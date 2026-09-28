@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
-import { JsonLd } from "@/components/json-ld";
-import { defaultOgImage, personJsonLd, websiteJsonLd } from "@/lib/seo";
+import { indexableRobots } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -47,18 +46,32 @@ const pixelOperatorMono = localFont({
   variable: "--font-pixel-mono",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0c0d0b",
+  colorScheme: "dark",
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — ${site.role}`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
-  metadataBase: new URL(site.url),
+  applicationName: site.name,
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
+  category: "portfolio",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   keywords: [
     "Akshith Mysa",
     "Klinn AI",
+    "systems engineer",
     "semiconductor nanotechnologies",
     "OVGU Magdeburg",
     "autonomous ornithopter",
@@ -71,18 +84,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: site.url,
     siteName: site.name,
-    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
     title: site.name,
     description: site.tagline,
-    images: [defaultOgImage.url],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: indexableRobots,
   alternates: {
     types: {
       "application/rss+xml": "/feed.xml",
@@ -97,7 +105,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       data-scroll-behavior="smooth"
       className={cn(
         "h-full",
@@ -106,11 +114,7 @@ export default function RootLayout({
         jetbrainsMono.variable,
       )}
     >
-      <body className="relative min-h-full bg-bg font-sans text-fg">
-        <JsonLd data={personJsonLd()} />
-        <JsonLd data={websiteJsonLd()} />
-        {children}
-      </body>
+      <body className="relative min-h-full bg-bg font-sans text-fg">{children}</body>
     </html>
   );
 }
