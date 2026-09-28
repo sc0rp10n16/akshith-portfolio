@@ -1,25 +1,14 @@
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
-import { getWriting } from "@/lib/writings";
+import { getWriting, writings } from "@/lib/writings";
 
-export const runtime = "nodejs";
-
-export async function generateImageMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const post = getWriting(slug);
-
-  return [
-    {
-      id: slug,
-      alt: post?.title ?? "Essay",
-      size: ogSize,
-      contentType: ogContentType,
-    },
-  ];
+export function generateStaticParams() {
+  return writings.map((post) => ({ slug: post.slug }));
 }
+
+export const alt = "Essay";
+export const size = ogSize;
+export const contentType = ogContentType;
+export const runtime = "nodejs";
 
 export default async function Image({
   params,
