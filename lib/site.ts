@@ -8,7 +8,7 @@ export const site = {
     "Systems engineer working two layers at once — production platforms, and the silicon they run on.",
   description:
     "Akshith Mysa is co-founder and CTO of Klinn AI, and a Master's student in Advanced Semiconductor Nanotechnologies at OVGU Magdeburg. Previously AI engineering at OSCOWL and bio-inspired flight research at TiHAN–IIT Hyderabad.",
-  url: "https://akshithmysa.com",
+  url: "https://www.akshithmysa.space",
   email: "akshithmysa.physics@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/akshithmysa",
